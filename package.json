@@ -1,0 +1,37 @@
+{
+  "name": "nest-react",
+  "version": "0.1.0",
+  "author": "Paul Landázuri",
+  "description": "Simple boilerplate for a Nest + React project",
+  "homepage": "https://github.com/LandazuriPaul/nest-react#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LandazuriPaul/nest-react.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LandazuriPaul/nest-react/issues"
+  },
+  "directories": {
+    "doc": "docs"
+  },
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "references": [
+    {
+      "path": "packages/domain"
+    },
+    {
+      "path": "packages/lib"
+    }
+  ],
+  "scripts": {
+    "build:domain": "cd packages/domain && yarn build",
+    "build:lib": "cd packages/lib && yarn build",
+    "compile": "(yarn build:domain & yarn build:lib)",
+    "build-push:api": "PACKAGE=api ./scripts/build_and_push.sh",
+    "build-push:frontend": "PACKAGE=frontend ./scripts/build_and_push.sh",
+    "lint": "yarn workspaces run lint"
+  }
+}

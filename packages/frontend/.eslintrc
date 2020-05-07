@@ -1,0 +1,32 @@
+{
+  "extends": ["../../.eslintrc", "plugin:react/recommended"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "modules": true,
+      "jsx": true
+    },
+    "project": "tsconfig.json",
+    "ecmaVersion": 6,
+    "useJSXTextNode": true
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "plugins": ["@typescript-eslint", "react", "react-hooks"],
+  "rules": {
+    "react-hooks/exhaustive-deps": "warn",
+    "react-hooks/rules-of-hooks": "error",
+    "react/no-typos": "off",
+    "react/forbid-prop-types": "off"
+  },
+  "overrides": [
+    {
+      "files": ["**/*.tsx"],
+      "rules": {
+        "react/prop-types": "off"
+      }
+    }
+  ]
+}

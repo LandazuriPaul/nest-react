@@ -1,0 +1,8 @@
+**/env
+**/dist
+**/node_modules
+.editorconfig
+.gitignore
+.nvmrc
+.prettierrc
+.vscode

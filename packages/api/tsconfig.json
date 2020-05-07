@@ -1,0 +1,17 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "declaration": true,
+    "emitDecoratorMetadata": true,
+    "incremental": true,
+    "module": "commonjs",
+    "outDir": "dist",
+    "paths": {
+      "~/*": ["src/*"]
+    },
+    "removeComments": true,
+    "strictPropertyInitialization": false,
+    "target": "es2017"
+  }
+}
