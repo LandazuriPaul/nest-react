@@ -2,7 +2,6 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "declaration": true,
     "emitDecoratorMetadata": true,
     "incremental": true,
     "module": "commonjs",
