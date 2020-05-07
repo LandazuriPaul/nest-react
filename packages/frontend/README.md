@@ -9,7 +9,7 @@ If your frontend imports assets (e.g. images), they will be passed as base64 inl
 ### In development
 
 ```sh
-# Runs the webpack dev server
+# Runs the webpack dev server (using HMR)
 yarn start:dev
 ```
 

@@ -39,7 +39,7 @@ You can learn more about each application in their respective folder and README:
    yarn install
    ```
 
-   This will install all package dependencies in a common `node_modules` folder at the root of the project using a single `yarn.lock` file to avoid conflicts package dependencies.
+   This will install all package dependencies in a common `node_modules` folder at the root of the project using a single `yarn.lock` file to avoid conflicting package dependencies.
 
 3. Finally, in order to have the common packages (`lib` and `domain`) built so they can be used by both the `API` and the `frontend`, run:
 
