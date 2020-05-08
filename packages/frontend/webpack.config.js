@@ -69,10 +69,7 @@ module.exports = async () => {
     },
     plugins: [
       new ExtraWatchWebpackPlugin({
-        dirs: [
-          join(__dirname, '..', 'domain', 'src'),
-          join(__dirname, '..', 'lib', 'src'),
-        ],
+        dirs: [join('..', 'domain', 'src'), join('..', 'lib', 'src')],
       }),
       new HtmlWebpackPlugin({
         template: join(__dirname, 'public', 'index.html'),
