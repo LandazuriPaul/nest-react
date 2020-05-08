@@ -13,6 +13,12 @@ If your frontend imports assets (e.g. images), they will be passed as base64 inl
 yarn start:dev
 ```
 
+As the bundler uses the `babel-loader` in order to improve the Developer Experience (faster reload and better integration with library tree-shaking features), the TypeScript types are not checked by the development server. For a specific TypeScript check, you can run:
+
+```sh
+yarn check-types
+```
+
 #### Debug
 
 > The powerful debug feature allows any Node.js debugger tool to connect to the running process in order to define breakpoints, log points, and more. Any Chromium based browser comes with the Node inspector feature built-in. To learn more about the Node.js debugging tools, the [Node.js documentation](https://nodejs.org/de/docs/guides/debugging-getting-started/) is a nice starting point.

@@ -8,7 +8,8 @@
     "start:dev": "NODE_ENV=development webpack-dev-server --config ./webpack.config.js",
     "prebuild": "rimraf dist",
     "build": "webpack --config ./webpack.config.js -p --progress --profile --colors --mode production",
-    "lint": "eslint --fix --ext .ts,.tsx,.js,.jsx src"
+    "lint": "eslint --fix --ext .ts,.tsx,.js,.jsx src",
+    "check-types": "tsc --noEmit"
   },
   "author": "Paul Landázuri",
   "license": "LGPL-3.0-or-later",
