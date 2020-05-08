@@ -8,6 +8,7 @@
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "tsc",
+    "start:dev": "tsc --watch",
     "lint": "eslint \"{src,test}/**/*.ts\" --fix"
   },
   "dependencies": {
