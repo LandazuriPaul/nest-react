@@ -3,15 +3,20 @@ import React, { FC, useEffect, useState } from 'react';
 import { Dictionary } from '@nest-react/domain';
 
 import { API_URL } from '~/config';
+import { Logger } from '~/utils';
 
 export const App: FC<{}> = () => {
   const [response, setResponse] = useState<string>('');
 
   useEffect(() => {
     async function fetchResponse(): Promise<void> {
-      const res = await fetch(API_URL);
-      const data = await res.text();
-      setResponse(data);
+      try {
+        const res = await fetch(API_URL);
+        const data = await res.text();
+        setResponse(data);
+      } catch (err) {
+        Logger.error(err);
+      }
     }
 
     fetchResponse();
