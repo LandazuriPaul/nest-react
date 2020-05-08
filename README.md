@@ -18,7 +18,20 @@ You can learn more about each application in their respective folder and README:
 
 - [API](./packages/api)
 
-> NOTE: The optional chaining is available :)
+> NOTE: Optional chaining is available :)
+
+## How to adapt the boilerplate
+
+To start using the boilerplate for your project, you should:
+
+1. Change the main project's name, set in the root [`package.json`](./package.json)'s `name` field.
+
+2. Change each package's name, set in its own `package.json`'s `name` field.
+
+3. Update the `dependencies` of each package requiring one of the internal packages:
+
+   - API: [`package.json`](./packages/api/package.json)
+   - Frontend: [`package.json`](./packages/frontend/package.json)
 
 ## Installation
 
@@ -41,7 +54,7 @@ You can learn more about each application in their respective folder and README:
    yarn install
    ```
 
-   This will install all package dependencies in a common `node_modules` folder at the root of the project using a single `yarn.lock` file to avoid conflicting dependencies.
+   This will install all package dependencies in a common `node_modules` folder at the root of the project using a single `yarn.lock` file to avoid conflicting dependencies. The internal dependencies will be replaced by symbolic links to the corresponding packages.
 
 3. Finally, in order to have the common packages (`lib` and `domain`) built so they can be used by both the `API` and the `frontend`, run:
 
