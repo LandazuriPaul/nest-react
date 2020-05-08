@@ -1,5 +1,9 @@
 {
   "extends": ["../../.eslintrc", "plugin:react/recommended"],
+  "env": {
+    "browser": true,
+    "node": false
+  },
   "parserOptions": {
     "ecmaFeatures": {
       "modules": true,

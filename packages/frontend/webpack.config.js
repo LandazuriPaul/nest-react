@@ -1,4 +1,4 @@
-/* eslint-disable no-console, @typescript-eslint/camelcase, @typescript-eslint/no-var-requires */
+/* eslint-disable no-console, @typescript-eslint/camelcase */
 const { join } = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
 const { TsconfigPathsPlugin } = require('tsconfig-paths-webpack-plugin');
