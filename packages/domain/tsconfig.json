@@ -3,7 +3,6 @@
   "compilerOptions": {
     "module": "commonjs",
     "target": "es2017",
-    "outDir": "dist",
-    "incremental": true
+    "outDir": "dist"
   }
 }
