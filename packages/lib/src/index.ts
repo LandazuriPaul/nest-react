@@ -1,1 +1,1 @@
-export { getLastCommit } from './getLastCommit';
+export * from './getLastCommit';
