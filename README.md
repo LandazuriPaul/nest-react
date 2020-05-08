@@ -99,7 +99,7 @@ In order to run the applications in a completely containerised environment, plea
 
 ## License
 
-This project is licensed under the [GNU GENERAL PUBLIC LICENSE Version 3](https://www.gnu.org/licenses/gpl-3.0.en.html). You can learn more reading the [LICENSE](./LICENSE).
+This project is licensed under the [GNU Lesser General Public License v3.0 or later](https://spdx.org/licenses/LGPL-3.0-or-later.html). You can learn more reading the [LICENSE](./LICENSE).
 
 ## Author
 

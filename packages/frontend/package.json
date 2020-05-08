@@ -11,7 +11,7 @@
     "lint": "eslint --fix --ext .ts,.tsx,.js,.jsx src"
   },
   "author": "Paul Landázuri",
-  "license": "GPL-3.0-or-later",
+  "license": "LGPL-3.0-or-later",
   "dependencies": {
     "@nest-react/domain": "0.1.0",
     "@nest-react/lib": "0.1.0",

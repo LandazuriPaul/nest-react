@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Domain of the nest-react boilerplate",
   "author": "Paul Landázuri",
-  "license": "GPL-3.0-or-later",
+  "license": "LGPL-3.0-or-later",
   "main": "dist/index.js",
   "scripts": {
     "prebuild": "rimraf dist",
