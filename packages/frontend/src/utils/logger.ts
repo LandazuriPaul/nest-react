@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-ignore */
 import debug from 'debug';
 
-const LOGGER_PREFIX = 'audacity';
+import { LOGGER_PREFIX } from '~/config';
 
 const debugInfo = debug(`${LOGGER_PREFIX}:info`);
 debugInfo.enabled = true;
@@ -32,11 +32,15 @@ export class Logger {
   }
 
   // @ts-ignore:Rest parameter 'args' implicitly has an 'any[]' type
-  static error(e: Error, ...rest): void {
-    let message = e.toString();
-    if (e.stack) {
-      message = `${message}\n__Stack trace__\n\n${e.stack}`;
+  static error(...args): void {
+    if (args && args.length > 0 && args[0] instanceof Error) {
+      const [e, ...rest] = args;
+      let message = e.toString();
+      if (e.stack) {
+        message = `${message}\n__Stack trace__\n\n${e.stack}`;
+      }
+      return debugError(message, rest.length > 0 ? rest : undefined);
     }
-    return debugError(message, rest.length > 0 ? rest : undefined);
+    return debugError(args);
   }
 }
