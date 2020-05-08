@@ -75,17 +75,17 @@ While being as minimal as possible on the final bundle side, the boilerplate int
 
 - [EditorConfig](https://editorconfig.org/): _« helps maintain consistent coding styles for multiple developers working on the same project across various editors and IDEs. »_
 
-  \> Rules are set in the root [`.editorconfig`](./.editorconfig) file.
+  - Rules are set in the root [`.editorconfig`](./.editorconfig) file.
 
 - [Prettier](https://prettier.io/) (^1.19.1): _« An opinionated code formatter »_ which _« saves you time and energy »_.
 
-  \> Rules are set in the root [`.prettierrc`](./.prettierrc) file.
+  - Rules are set in the root [`.prettierrc`](./.prettierrc) file.
 
 - [ESLint](https://eslint.org/) (^6.8.0) with [TypeScript parser](https://github.com/typescript-eslint/typescript-eslint) (^2.23.0): _« Find and fix problems in your JavaScript code »_
 
-  \> Project rules are set in the root [`.eslintrc`](./.eslintrc) file.
+  - Project rules are set in the root [`.eslintrc`](./.eslintrc) file.
 
-  \> As the frontend package requires specific React related rules, it has its own [`.eslintrc`](./packages/frontend/.eslintrc) file which extends the project one.
+  - As the frontend package requires specific React related rules, it has its own [`.eslintrc`](./packages/frontend/.eslintrc) file which extends the project one.
 
 To see how to integrates these tools with your favourite IDE or text editor, you can see the CONTRIBUTING [Development tools](./CONTRIBUTING.md#development-tools) section.
 
@@ -99,7 +99,7 @@ command to ensure that its source code is written according to the ESLint rules.
 
 ## TypeScript import paths
 
-As you can see in both [API](./packages/api/tsconfig.json)'s and [frontend](./packages/frontend/tsconfig.json)'s `tsconfig.json` files, both the `baseUrl` and `paths` properties are defined to help you avoid the cumbersome and error-prone `../../` import paths:
+As you can see in both [API](./packages/api/tsconfig.json)'s and [frontend](./packages/frontend/tsconfig.json)'s `tsconfig.json` files, both the `baseUrl` and `paths` properties are defined to help you avoid the cumbersome and error-prone `../../` import paths (amongst other options):
 
 ```json
 // tsconfig.json
@@ -107,7 +107,6 @@ As you can see in both [API](./packages/api/tsconfig.json)'s and [frontend](./pa
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "baseUrl": ".",
-    // ...other options
     "paths": {
       "~/*": ["src/*"]
     }
