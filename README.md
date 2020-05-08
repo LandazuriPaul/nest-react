@@ -14,7 +14,7 @@ You can learn more about each package in its respective README:
 
 To start using the boilerplate for your project, you should:
 
-1. Change the main project's name, set in the root [`package.json`](./package.json)'s `name` field.
+1. Change the main project's name, set in the root [`package.json`](./package.json)'s `name` field and in its `scripts` commands.
 
 2. Change each package's name, set in its own `package.json`'s `name` field.
 
@@ -48,10 +48,16 @@ To start using the boilerplate for your project, you should:
 
    This will install all package dependencies in a common `node_modules` folder at the root of the project using a single `yarn.lock` file to avoid conflicting dependencies. The internal dependencies will be replaced by symbolic links to the corresponding packages.
 
-3. Finally, in order to have the common packages (`lib` and `domain`) built so they can be used by both the `API` and the `frontend`, run:
+3. Finally, in order to have the "common" packages (`lib` and `domain`) built so they can be used by both the `API` and the `frontend`, run:
 
    ```sh
-   yarn compile
+   yarn build:common
+   ```
+
+   Or if you want the common packages to be **watched for file changes**, you can run:
+
+   ```sh
+   yarn start:common
    ```
 
 ### Note about subsequent installations

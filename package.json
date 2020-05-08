@@ -27,9 +27,12 @@
     }
   ],
   "scripts": {
-    "build:domain": "cd packages/domain && yarn build",
-    "build:lib": "cd packages/lib && yarn build",
-    "compile": "(yarn build:domain & yarn build:lib)",
+    "start:domain": "yarn workspace @nest-react/domain start:dev",
+    "start:lib": "yarn workspace @nest-react/lib start:dev",
+    "start:common": "(yarn start:domain & yarn start:lib)",
+    "build:domain": "yarn workspace @nest-react/domain build",
+    "build:lib": "yarn workspace @nest-react/lib build",
+    "build:common": "(yarn build:domain & yarn build:lib)",
     "build-push:api": "PACKAGE=api ./scripts/build_and_push.sh",
     "build-push:frontend": "PACKAGE=frontend ./scripts/build_and_push.sh",
     "lint": "yarn workspaces run lint"

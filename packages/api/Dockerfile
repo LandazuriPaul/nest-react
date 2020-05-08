@@ -15,7 +15,7 @@ COPY packages/lib packages/lib
 
 # Install domain + lib + API dependencies
 RUN yarn install --pure-lockfile --non-interactive
-RUN yarn compile
+RUN yarn build:common
 
 # Build API then
 WORKDIR /usr/src/nest-react/packages/api
