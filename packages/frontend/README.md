@@ -53,7 +53,11 @@ If your frontend imports assets (e.g. images), they will be passed as base64 inl
 yarn start:dev
 ```
 
-As the bundler uses the `babel-loader` in order to improve the Developer Experience (faster reload and better integration with library tree-shaking features), the TypeScript types are not checked by the development server. For a specific TypeScript check, you can run:
+As the `webpack` loader used for both JavaScript and TypeScript files is the `babel-loader`, it simply strips away all TypeScript-specific features in the source code when building both the development server and the final production build. This dramatically speeds up the hot replacement process when locally developing and offers a number of improvements with libraries which don't support tree-shaking natively. It also avoids many useless disrupting errors occurring during prototyping while the types aren't completely respected yet.
+
+But the disadvantage is that the bundler won't detect any TypeScript error unless it is a JavaScript error.
+
+To work around this limitation, the repository exposes a command to check your code is TypeScript compliant:
 
 ```sh
 yarn check-types
@@ -61,7 +65,7 @@ yarn check-types
 
 #### Debug
 
-> The powerful debug feature allows any Node.js debugger tool to connect to the running process in order to define breakpoints, log points, and more. Any Chromium based browser comes with the Node inspector feature built-in. To learn more about the Node.js debugging tools, the [Node.js documentation](https://nodejs.org/de/docs/guides/debugging-getting-started/) is a nice starting point.
+The powerful debug feature allows any Node.js debugger tool to connect to the running process in order to define breakpoints, log points, and more. Any Chromium based browser comes with the Node inspector feature built-in. To learn more about the Node.js debugging tools, the [Node.js documentation](https://nodejs.org/de/docs/guides/debugging-getting-started/) is a nice starting point.
 
 If you use the VS Code IDE, this repository already ships 2 configurations to `launch` a Chrome debugging session or `attach` to an existing one. See the [.vscode/launch.json](../../.vscode/launch.json) file for more information.
 

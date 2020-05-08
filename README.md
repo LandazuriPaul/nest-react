@@ -1,20 +1,14 @@
 # Nest - React boilerplate
 
-This is a basic boilerplate to quickly set up a web application **fully written in [TypeScript](https://www.typescriptlang.org/)** (^3.7.4).
-
-> NOTE: Optional chaining is available :)
+This is a basic boilerplate to quickly set up a web application **fully written in [TypeScript](https://www.typescriptlang.org/)** (^3.7.4) — optional chaining available!
 
 You can learn more about each package in its respective README:
 
-- On the backend - go to the [API package](./packages/api):
+- [NestJS](https://nestjs.com/) (^7.0.0): _« A progressive Node.js framework for building efficient, reliable and scalable server-side applications. »_ for the **backend**. Go to the [API package](./packages/api):
 
-  > [NestJS](https://nestjs.com/) (^7.0.0): _« A progressive Node.js framework for building efficient, reliable and scalable server-side applications. »_
+* [React + ReactDOM](https://reactjs.org/) (^16.8.0 / ^16.12.0): _« A JavaScript library for building user interfaces »_ for the **frontend**. Go to the [frontend package](./packages/frontend):
 
-- On the frontend - go to the [frontend package](./packages/frontend):
-
-  > [React + ReactDOM](https://reactjs.org/) (^16.8.0 / ^16.12.0): _« A JavaScript library for building user interfaces »_
-
-- [Webpack](https://webpack.js.org/) (^4.42.0): A versatile bundler for both the frontend and the API.
+* [Webpack](https://webpack.js.org/) (^4.42.0): A versatile bundler for both the frontend and the API.
 
 ## How to adapt the boilerplate
 
@@ -29,7 +23,7 @@ To start using the boilerplate for your project, you should:
    - API: [`package.json`](./packages/api/package.json)
    - Frontend: [`package.json`](./packages/frontend/package.json)
 
-4. Change the frontend debug `LOGGER_PREFIX` which is set in the [`config.ts`](./packages/frontend/src/config.ts) file.
+4. Change the frontend debug `LOGGER_PREFIX` which is set in the [`config.ts`](./packages/frontend/src/config.ts) file. For more information, see the frontend README section [Debug library](./packages/frontend#debug-library).
 
 ## Installation
 
@@ -74,6 +68,58 @@ See each package's README to learn more about their development and build script
 - [Frontend](./packages/frontend/README.md)
 
 - [API](./packages/api/README.md)
+
+## Linting & development tools
+
+While being as minimal as possible on the final bundle side, the boilerplate integrates very useful linting and development tools so you can get started as quickly and efficiently as possible:
+
+- [EditorConfig](https://editorconfig.org/): _« helps maintain consistent coding styles for multiple developers working on the same project across various editors and IDEs. »_
+
+  \> Rules are set in the root [`.editorconfig`](./.editorconfig) file.
+
+- [Prettier](https://prettier.io/) (^1.19.1): _« An opinionated code formatter »_ which _« saves you time and energy »_.
+
+  \> Rules are set in the root [`.prettierrc`](./.prettierrc) file.
+
+- [ESLint](https://eslint.org/) (^6.8.0) with [TypeScript parser](https://github.com/typescript-eslint/typescript-eslint) (^2.23.0): _« Find and fix problems in your JavaScript code »_
+
+  \> Project rules are set in the root [`.eslintrc`](./.eslintrc) file.
+
+  \> As the frontend package requires specific React related rules, it has its own [`.eslintrc`](./packages/frontend/.eslintrc) file which extends the project one.
+
+To see how to integrates these tools with your favourite IDE or text editor, you can see the CONTRIBUTING [Development tools](./CONTRIBUTING.md#development-tools) section.
+
+Each package has its own
+
+```sh
+yarn lint
+```
+
+command to ensure that its source code is written according to the ESLint rules. The project itself also has a root `yarn lint` command to sequentially run it in each internal package.
+
+## TypeScript import paths
+
+As you can see in both [API](./packages/api/tsconfig.json)'s and [frontend](./packages/frontend/tsconfig.json)'s `tsconfig.json` files, both the `baseUrl` and `paths` properties are defined to help you avoid the cumbersome and error-prone `../../` import paths:
+
+```json
+// tsconfig.json
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    // ...other options
+    "paths": {
+      "~/*": ["src/*"]
+    }
+  }
+}
+```
+
+This allows you to `import` any file from the **same package** with the `'~/path/to/file/'` notation, considering the `src` folder as the package's _home_ (i.e. `~`).
+
+## Coding styles
+
+See [CONTRIBUTING](./CONTRIBUTING.md#coding-styles).
 
 ## Docker images
 
