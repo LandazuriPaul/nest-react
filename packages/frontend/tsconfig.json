@@ -13,7 +13,6 @@
     "paths": {
       "~/*": ["src/*"]
     },
-    "strict": false,
     "target": "es5"
   }
 }

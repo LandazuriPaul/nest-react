@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-ignore */
 import debug from 'debug';
 
 const LOGGER_PREFIX = 'audacity';
@@ -15,18 +16,22 @@ debugError.enabled = true;
 debugError.color = '#b01405';
 
 export class Logger {
+  // @ts-ignore:Rest parameter 'args' implicitly has an 'any[]' type
   static info(...args): void {
     return debugInfo(args);
   }
 
+  // @ts-ignore:Rest parameter 'args' implicitly has an 'any[]' type
   static log(...args): void {
     return debugInfo(args);
   }
 
+  // @ts-ignore:Rest parameter 'args' implicitly has an 'any[]' type
   static warn(...args): void {
     return debugWarn(args);
   }
 
+  // @ts-ignore:Rest parameter 'args' implicitly has an 'any[]' type
   static error(e: Error, ...rest): void {
     let message = e.toString();
     if (e.stack) {
