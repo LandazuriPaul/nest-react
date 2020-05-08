@@ -1,24 +1,20 @@
 # Nest - React boilerplate
 
-This is a basic boilerplate to quickly set up a web application **fully written in [TypeScript](https://www.typescriptlang.org/)** using the following technologies:
-
-- On the frontend:
-
-  - [React](https://reactjs.org/): ^16.8.0
-
-- On the backend (API):
-
-  - [NestJS](https://nestjs.com/): ^7.0.0
-
-- [Webpack](https://webpack.js.org/) (^4.42.0) to bundle both the frontend and the API.
-
-You can learn more about each application in their respective folder and README:
-
-- [Frontend](./packages/frontend)
-
-- [API](./packages/api)
+This is a basic boilerplate to quickly set up a web application **fully written in [TypeScript](https://www.typescriptlang.org/)** (^3.7.4).
 
 > NOTE: Optional chaining is available :)
+
+You can learn more about each package in its respective README:
+
+- On the backend - go to the [API package](./packages/api):
+
+  > [NestJS](https://nestjs.com/) (^7.0.0): _« A progressive Node.js framework for building efficient, reliable and scalable server-side applications. »_
+
+- On the frontend - go to the [frontend package](./packages/frontend):
+
+  > [React + ReactDOM](https://reactjs.org/) (^16.8.0 / ^16.12.0): _« A JavaScript library for building user interfaces »_
+
+- [Webpack](https://webpack.js.org/) (^4.42.0): A versatile bundler for both the frontend and the API.
 
 ## How to adapt the boilerplate
 
@@ -32,6 +28,8 @@ To start using the boilerplate for your project, you should:
 
    - API: [`package.json`](./packages/api/package.json)
    - Frontend: [`package.json`](./packages/frontend/package.json)
+
+4. Change the frontend debug `LOGGER_PREFIX` which is set in the [`config.ts`](./packages/frontend/src/config.ts) file.
 
 ## Installation
 

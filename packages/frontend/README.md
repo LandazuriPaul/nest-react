@@ -1,5 +1,45 @@
 # Nest React boilerplate frontend
 
+## Frontend dependencies
+
+As this boilerplate aims to be a minimal shell, it only ships 1 dependency on top of the React / ReactDOM pair and the internal dependencies: [Debug](https://github.com/visionmedia/debug) (^4.1.1).
+
+### Debug library
+
+This simple package allows you to log messages to the browser's console without using the synchronous and greedy `console`'s methods.
+
+The boilerplate already ships a basic [`Logger`](./packages/frontend/src/utils/logger.ts) class which exposes basic static methods:
+
+- `info`: for debug information
+- `log`: alias for `info`
+- `warn`: for warnings
+- `error`: for error reporting. If you provide an instance of the `Error` type to this method's first argument, you will see its stack trace exposed in a similar way as the `console.error` would expose it. See the `useEffect` hook in the [`App`](./src/components/App/App.tsx) component for an example.
+
+Once you have successfully adapted the boilerplate to your project, as explained in main README's section [How to adapt the boilerplate](../../README.md#how-to-adapt-the-boilerplate), to see the debug messages in your browser, you just need to set up the localstorage `debug` variable. To do so, run `localStorage.debug = '<LOGGER_PREFIX>:*'` in your browser console.
+
+To learn more about the debug library usage in the browser, you can check out [its documentation](https://github.com/visionmedia/debug#browser-support).
+
+### Styling options
+
+The boilerplate doesn't include any styling solution. Nevertheless, if you opt for a solution requiring CSS files, you could easily adapt the webpack configuration to include them:
+
+```js
+// close to the end of in the config.module.rules array
+{
+  test: /\.css$/,
+  use: ["style-loader", "css-loader"],
+},
+```
+
+You would then need to add these two loaders to your frontend `devDependencies`:
+
+```sh
+# from the packages/frontend directory
+yarn add -D style-loader css-loader
+```
+
+For more information about these loaders, please refer to their [respective documentation](https://webpack.js.org/loaders/#styling).
+
 ## Running the app
 
 By default, the webpack dev server is listening to the [http://localhost:8000](http://localhost:8000) port. This can be configured in the [webpack.config.js](./webpack.config.js) file, changing the `WEBPACK_DEV_SERVER_PORT` constant.
