@@ -3,6 +3,7 @@
 const { join } = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
 const { TsconfigPathsPlugin } = require('tsconfig-paths-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtraWatchWebpackPlugin = require('extra-watch-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -120,6 +121,11 @@ module.exports = async () => {
   };
 
   if (!developmentBuild) {
+    config.plugins.splice(
+      0,
+      1,
+      new CopyWebpackPlugin([{ from: 'public', ignore: ['index.html'] }])
+    );
     config.plugins.push(new CleanWebpackPlugin());
     config.optimization = {
       minimize: true,
