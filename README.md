@@ -38,7 +38,7 @@ To start using the boilerplate for your project, you should:
      curl -o- -L https://yarnpkg.com/install.sh | bash
      ```
 
-> This repository uses the [Yarn workspaces](https://classic.yarnpkg.com/en/docs/workspaces/) as a tool to manage the different packages.
+   > This repository uses the [Yarn workspaces](https://classic.yarnpkg.com/en/docs/workspaces/) as a tool to manage the different packages.
 
 2. Install dependencies with the classic:
 
@@ -46,7 +46,7 @@ To start using the boilerplate for your project, you should:
    yarn install
    ```
 
-   This will install all package dependencies in a common `node_modules` folder at the root of the project using a single `yarn.lock` file to avoid conflicting dependencies. The internal dependencies will be replaced by symbolic links to the corresponding packages.
+   > This will install all package dependencies in a common `node_modules` folder at the root of the project using a single `yarn.lock` file to avoid conflicting dependencies. The internal dependencies will be replaced by symbolic links to the corresponding packages.
 
 3. Finally, in order to have the "common" packages (`lib` and `domain`) built so they can be used by both the `API` and the `frontend`, run:
 
