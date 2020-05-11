@@ -2,9 +2,9 @@
 
 ## Coding styles
 
-As the TypeScript project doesn't issue an "official style guide", this project mostly follows the [Standard JavaScript rules](https://standardjs.com/rules.html).
+As the TypeScript project doesn't issue an "official style guide", this boilerplate mostly follows the [Standard JavaScript rules](https://standardjs.com/rules.html) for generic JavaScript declaration, and the [TypeScript book StyleGuide and Coding Conventions](https://basarat.gitbook.io/typescript/styleguide) for TypeScript specific syntax.
 
-For specific TypeScript objects, this boilerplate follows the [TypeScript book StyleGuide and Coding Conventions](https://basarat.gitbook.io/typescript/styleguide). Here are the main naming conventions:
+As a quick summary, here are the main naming conventions:
 
 - Use `camelCase` for **variable** and **function** names
 
@@ -61,7 +61,7 @@ Prettier easily integrates [many text editors and IDEs](https://prettier.io/), f
 
 - JetBrains IDEs: built-in support
 
-This repository has a `.vscode` folder with the following setting to help us have a smooth experience with formatting:
+This boilerplate has a `.vscode` folder with the following setting to help us have a smooth experience with formatting:
 
 ```json
 {
@@ -72,8 +72,6 @@ This repository has a `.vscode` folder with the following setting to help us hav
 Other IDEs and text editors usually offer similar features to help you ensure that the code is automatically formatted the way Prettier expects.
 
 ### TypeScript
-
-This boilerplate codebase is written in [TypeScript](https://www.typescriptlang.org/) as a JavaScript superset to help detect type errors much faster and maintain consistent code.
 
 VS Code and WebStorm both fully support TypeScript natively. For [Vim / NeoVim](https://github.com/Microsoft/TypeScript/wiki/TypeScript-Editor-Support#vim), here are some tools to help you with the syntax highlighting and syntax error detections, etc.:
 
