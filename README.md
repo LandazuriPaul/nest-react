@@ -111,7 +111,7 @@ command to ensure that its source code is written according to the ESLint rules.
 
 ## TypeScript import paths
 
-As you can see in both [SERVER](./packages/server/tsconfig.json)'s and [client](./packages/client/tsconfig.json)'s `tsconfig.json` files, both the `baseUrl` and `paths` properties are defined to help you avoid the cumbersome and error-prone `../../` import paths (amongst other options):
+As you can see in both the [server](./packages/server/tsconfig.json)'s and the [client](./packages/client/tsconfig.json)'s `tsconfig.json` files, both the `baseUrl` and `paths` properties are defined to help you avoid the cumbersome and error-prone `../../` import paths (amongst other options):
 
 ```json
 // tsconfig.json
@@ -139,7 +139,7 @@ This project comes with a `Dockerfile` for each package likely to be deployed. T
 To build the corresponding Docker images, you can use the [build_and_push.sh](./scripts/build_and_push.sh) script by setting the `PACKAGE` and optionally the `VERSION` — defaults to `latest` — as environment variables or simply use the dedicated `yarn` commands (the `latest` version will be applied):
 
 ```sh
-# To build and push the SERVER
+# To build and push the server
 yarn build-push:server
 
 # To build and push the client
