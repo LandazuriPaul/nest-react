@@ -4,9 +4,9 @@ This is a basic boilerplate to quickly set up a web application **fully written 
 
 You can learn more about each package in its respective README:
 
-- [NestJS](https://nestjs.com/) (^7.0.0): _« A progressive Node.js framework for building efficient, reliable and scalable server-side applications. »_ for the **backend**. Go to the [API package](./packages/api):
+- [NestJS](https://nestjs.com/) (^7.0.0): _« A progressive Node.js framework for building efficient, reliable and scalable server-side applications. »_ for the **backend**. Go to the [API package](./packages/api).
 
-* [React + ReactDOM](https://reactjs.org/) (^16.8.0 / ^16.12.0): _« A JavaScript library for building user interfaces »_ for the **frontend**. Go to the [frontend package](./packages/frontend):
+* [React + ReactDOM](https://reactjs.org/) (^16.8.0 / ^16.12.0): _« A JavaScript library for building user interfaces »_ for the **frontend**. Go to the [frontend package](./packages/frontend).
 
 * [Webpack](https://webpack.js.org/) (^4.42.0): A versatile bundler for both the frontend and the API.
 
