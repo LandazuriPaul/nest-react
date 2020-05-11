@@ -2,7 +2,7 @@
 
 ## Coding styles
 
-As the TypeScript project doesn't issue an "official style guide", this project mostly follows the [Standard JavaScript rules](https://standardjs.com/rules.html) — the main difference being the double quotes instead of the single ones.
+As the TypeScript project doesn't issue an "official style guide", this project mostly follows the [Standard JavaScript rules](https://standardjs.com/rules.html).
 
 For specific TypeScript objects, this boilerplate follows the [TypeScript book StyleGuide and Coding Conventions](https://basarat.gitbook.io/typescript/styleguide). Here are the main naming conventions:
 
