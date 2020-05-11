@@ -29,7 +29,7 @@ To start using the boilerplate for your project, you should:
 
 4. Change the client debug `LOGGER_PREFIX` which is set in the [`config.ts`](./packages/client/src/config.ts) file. For more information, see the client README section [Debug library](./packages/client#debug-library).
 
-5. Adapt the `packages/client/public` folder to your project (with your icons, manifest, robots.txt files).
+5. Adapt the [`packages/client/public`](./packages/client/public) folder to your project (with your icons, manifest, robots.txt files).
 
 ## Installation
 
