@@ -25,6 +25,8 @@ To start using the boilerplate for your project, you should:
 
 4. Change the frontend debug `LOGGER_PREFIX` which is set in the [`config.ts`](./packages/frontend/src/config.ts) file. For more information, see the frontend README section [Debug library](./packages/frontend#debug-library).
 
+5. Adapt the `packages/frontend/public` folder to your project (with your icons, manifest, robots.txt files).
+
 ## Installation
 
 1. Basic requirements to run the repository:
