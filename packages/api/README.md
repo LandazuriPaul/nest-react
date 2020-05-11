@@ -67,4 +67,4 @@ yarn test:cov
 
 The API package has a [Dockerfile](./Dockerfile) which builds a lightweight (based on the [alpine](https://alpinelinux.org/) project) production ready Docker image.
 
-For more information about the Docker images, see the [main README.md](../../README.md).
+For more information about the Docker images, see the [main README.md](../../README.md#docker-images).
