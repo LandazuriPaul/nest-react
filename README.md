@@ -4,11 +4,11 @@ This is a basic boilerplate to quickly set up a web application **fully written 
 
 You can learn more about each package in its respective README:
 
-- [NestJS](https://nestjs.com/) (^7.0.0): _« A progressive Node.js framework for building efficient, reliable and scalable server-side applications. »_ for the **backend**. Go to the [API package](./packages/api).
+- [NestJS](https://nestjs.com/) (^7.0.0): _« A progressive Node.js framework for building efficient, reliable and scalable server-side applications. »_ for the **backend**. Go to the [server package](./packages/server).
 
-* [React + ReactDOM](https://reactjs.org/) (^16.8.0 / ^16.12.0): _« A JavaScript library for building user interfaces »_ for the **frontend**. Go to the [frontend package](./packages/frontend).
+* [React + ReactDOM](https://reactjs.org/) (^16.8.0 / ^16.12.0): _« A JavaScript library for building user interfaces »_ for the **client**. Go to the [client package](./packages/client).
 
-* [Webpack](https://webpack.js.org/) (^4.42.0): A versatile bundler for both the frontend and the API.
+* [Webpack](https://webpack.js.org/) (^4.42.0): A versatile bundler for both the client and the server.
 
 ## How to adapt the boilerplate
 
@@ -20,12 +20,12 @@ To start using the boilerplate for your project, you should:
 
 3. Update the `dependencies` of each package requiring one of the internal packages:
 
-   - API: [`package.json`](./packages/api/package.json)
-   - Frontend: [`package.json`](./packages/frontend/package.json)
+   - Server: [`package.json`](./packages/server/package.json)
+   - Client: [`package.json`](./packages/client/package.json)
 
-4. Change the frontend debug `LOGGER_PREFIX` which is set in the [`config.ts`](./packages/frontend/src/config.ts) file. For more information, see the frontend README section [Debug library](./packages/frontend#debug-library).
+4. Change the client debug `LOGGER_PREFIX` which is set in the [`config.ts`](./packages/client/src/config.ts) file. For more information, see the client README section [Debug library](./packages/client#debug-library).
 
-5. Adapt the `packages/frontend/public` folder to your project (with your icons, manifest, robots.txt files).
+5. Adapt the `packages/client/public` folder to your project (with your icons, manifest, robots.txt files).
 
 ## Installation
 
@@ -50,7 +50,7 @@ To start using the boilerplate for your project, you should:
 
    > This will install all package dependencies in a common `node_modules` folder at the root of the project using a single `yarn.lock` file to avoid conflicting dependencies. The internal dependencies will be replaced by symbolic links to the corresponding packages.
 
-3. Finally, in order to have the "common" packages (`lib` and `domain`) built so they can be used by both the `API` and the `frontend`, run:
+3. Finally, in order to have the "common" packages (`lib` and `domain`) built so they can be used by both the `server` and the `client`, run:
 
    ```sh
    yarn build:common
@@ -73,9 +73,9 @@ When you want to add new dependencies to any of the packages, you can either:
 
 See each package's README to learn more about their development and build scripts:
 
-- [Frontend](./packages/frontend/README.md)
+- [Client](./packages/client/README.md)
 
-- [API](./packages/api/README.md)
+- [server](./packages/server/README.md)
 
 ## Linting & development tools
 
@@ -93,7 +93,7 @@ While being as minimal as possible on the final bundle side, the boilerplate int
 
   - Project rules are set in the root [`.eslintrc`](./.eslintrc) file.
 
-  - As the frontend package requires specific React related rules, it has its own [`.eslintrc`](./packages/frontend/.eslintrc) file which extends the project one.
+  - As the client package requires specific React related rules, it has its own [`.eslintrc`](./packages/client/.eslintrc) file which extends the project one.
 
 To see how to integrates these tools with your favourite IDE or text editor, you can see the CONTRIBUTING [Development tools](./CONTRIBUTING.md#development-tools) section.
 
@@ -107,7 +107,7 @@ command to ensure that its source code is written according to the ESLint rules.
 
 ## TypeScript import paths
 
-As you can see in both [API](./packages/api/tsconfig.json)'s and [frontend](./packages/frontend/tsconfig.json)'s `tsconfig.json` files, both the `baseUrl` and `paths` properties are defined to help you avoid the cumbersome and error-prone `../../` import paths (amongst other options):
+As you can see in both [SERVER](./packages/server/tsconfig.json)'s and [client](./packages/client/tsconfig.json)'s `tsconfig.json` files, both the `baseUrl` and `paths` properties are defined to help you avoid the cumbersome and error-prone `../../` import paths (amongst other options):
 
 ```json
 // tsconfig.json
@@ -135,11 +135,11 @@ This project comes with a `Dockerfile` for each package likely to be deployed. T
 To build the corresponding Docker images, you can use the [build_and_push.sh](./scripts/build_and_push.sh) script by setting the `PACKAGE` and optionally the `VERSION` — defaults to `latest` — as environment variables or simply use the dedicated `yarn` commands (the `latest` version will be applied):
 
 ```sh
-# To build and push the API
-yarn build-push:api
+# To build and push the SERVER
+yarn build-push:server
 
-# To build and push the frontend
-yarn build-push:frontend
+# To build and push the client
+yarn build-push:client
 ```
 
 ## Deployment

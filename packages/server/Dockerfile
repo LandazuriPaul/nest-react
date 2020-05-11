@@ -1,7 +1,7 @@
 # Builder
 FROM node:12-alpine as builder
 
-# Copy API and domain + lib packages
+# Copy server and domain + lib packages
 WORKDIR /usr/src/nest-react/
 COPY .eslintrc .
 COPY .eslintignore .
@@ -9,16 +9,16 @@ COPY package.json .
 COPY tsconfig.json .
 COPY yarn.lock .
 
-COPY packages/api packages/api
+COPY packages/server packages/server
 COPY packages/domain packages/domain
 COPY packages/lib packages/lib
 
-# Install domain + lib + API dependencies
+# Install domain + lib + server dependencies
 RUN yarn install --pure-lockfile --non-interactive
 RUN yarn build:common
 
-# Build API then
-WORKDIR /usr/src/nest-react/packages/api
+# Build server then
+WORKDIR /usr/src/nest-react/packages/server
 RUN yarn build
 
 # Runner
@@ -36,18 +36,18 @@ COPY --from=builder /usr/src/nest-react/packages/domain/dist packages/domain/dis
 COPY --from=builder /usr/src/nest-react/packages/lib/package.json packages/lib/package.json
 COPY --from=builder /usr/src/nest-react/packages/lib/dist packages/lib/dist
 
-COPY --from=builder /usr/src/nest-react/packages/api/package.json packages/api/package.json
-COPY --from=builder /usr/src/nest-react/packages/api/dist packages/api/dist
+COPY --from=builder /usr/src/nest-react/packages/server/package.json packages/server/package.json
+COPY --from=builder /usr/src/nest-react/packages/server/dist packages/server/dist
 
 # Install production dependencies
 RUN yarn install --pure-lockfile --non-interactive --production
 
-# Move to the API app
-WORKDIR /usr/src/nest-react/packages/api
+# Move to the server app
+WORKDIR /usr/src/nest-react/packages/server
 
 # Set the correct ownership for the app folder
-RUN chown -R node:node /usr/src/nest-react/packages/api/
+RUN chown -R node:node /usr/src/nest-react/packages/server/
 
-# Launch the API with container
+# Launch the server with container
 ARG NODE_ENV=production
 CMD ["yarn", "start:prod"]

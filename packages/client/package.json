@@ -1,7 +1,7 @@
 {
-  "name": "@nest-react/frontend",
+  "name": "@nest-react/client",
   "version": "0.1.0",
-  "description": "Frontend boilerplate using React, communicating with a Nest API",
+  "description": "Client boilerplate using React, communicating with a Nest server",
   "main": "src/index.tsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

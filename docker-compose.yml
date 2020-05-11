@@ -3,18 +3,18 @@
 version: '3.6'
 
 services:
-  # API
-  api:
-    image: docker.pkg.github.com/landazuripaul/nest-react/nest-react-api:latest
+  # Server
+  server:
+    image: docker.pkg.github.com/landazuripaul/nest-react/nest-react-server:latest
     volumes:
-      - ./packages/api/env/local.env:/usr/src/nest-react/packages/api/env/local.env
+      - ./packages/server/env/local.env:/usr/src/nest-react/packages/server/env/local.env
     ports:
       - '4000:4000'
     environment:
       - NODE_ENV=local
 
-  # Frontend
-  frontend:
-    image: docker.pkg.github.com/landazuripaul/nest-react/nest-react-frontend:latest
+  # Client
+  client:
+    image: docker.pkg.github.com/landazuripaul/nest-react/nest-react-client:latest
     ports:
       - '8000:80'

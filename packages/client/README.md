@@ -1,6 +1,6 @@
-# Nest React boilerplate frontend
+# Nest React boilerplate client
 
-## Frontend dependencies
+## Client dependencies
 
 As this boilerplate aims to be a minimal shell, it only ships 1 dependency on top of the React / ReactDOM pair and the internal dependencies: [Debug](https://github.com/visionmedia/debug) (^4.1.1).
 
@@ -8,7 +8,7 @@ As this boilerplate aims to be a minimal shell, it only ships 1 dependency on to
 
 This simple package allows you to log messages to the browser's console without using the synchronous and greedy `console`'s methods.
 
-The boilerplate already ships a basic [`Logger`](./packages/frontend/src/utils/logger.ts) class which exposes basic static methods:
+The boilerplate already ships a basic [`Logger`](./packages/client/src/utils/logger.ts) class which exposes basic static methods:
 
 - `info`: for debug information
 - `log`: alias for `info`
@@ -31,10 +31,10 @@ The boilerplate doesn't include any styling solution. Nevertheless, if you opt f
 },
 ```
 
-You would then need to add these two loaders to your frontend `devDependencies`:
+You would then need to add these two loaders to your client `devDependencies`:
 
 ```sh
-# from the packages/frontend directory
+# from the packages/client directory
 yarn add -D style-loader css-loader
 ```
 
@@ -44,7 +44,7 @@ For more information about these loaders, please refer to their [respective docu
 
 By default, the webpack dev server is listening to the [http://localhost:8000](http://localhost:8000) port. This can be configured in the [webpack.config.js](./webpack.config.js) file, changing the `WEBPACK_DEV_SERVER_PORT` constant.
 
-If your frontend imports assets (e.g. images), they will be passed as base64 inline HTML element if they are under `5000` bytes. Otherwise they will be passed as separated files in the final bundle. To change this limit, you can change the `ASSETS_MAX_INLINE_SIZE` constant. For more information about this, see the [`url-loader` documentation](https://webpack.js.org/loaders/url-loader).
+If your client imports assets (e.g. images), they will be passed as base64 inline HTML element if they are under `5000` bytes. Otherwise they will be passed as separated files in the final bundle. To change this limit, you can change the `ASSETS_MAX_INLINE_SIZE` constant. For more information about this, see the [`url-loader` documentation](https://webpack.js.org/loaders/url-loader).
 
 ### In development
 
@@ -83,6 +83,6 @@ Once you are happy with your code, you can run a production version following th
 
 ### Docker image
 
-The frontend package has a [Dockerfile](./Dockerfile) which builds a lightweight (based on the [alpine](https://alpinelinux.org/) project) production ready Docker image.
+The client package has a [Dockerfile](./Dockerfile) which builds a lightweight (based on the [alpine](https://alpinelinux.org/) project) production ready Docker image.
 
 For more information about the Docker images, see the [main README.md](../../README.md#docker-images).

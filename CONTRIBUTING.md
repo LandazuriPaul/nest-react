@@ -18,7 +18,7 @@ To ensure we can easily know what a file content is about, we enforce the follow
 
 - **React component** files are named after their main exported component. This is why they are the ONLY files using the `PascalCase` for naming. They also have the `.tsx` extension.
 
-- Each **React component** lives in its own folder, right under the `packages/frontend/src/components` folder.
+- Each **React component** lives in its own folder, right under the `packages/client/src/components` folder.
 
 - **All other TS** files are named using the `camelCase` convention. On top of that, when a file defines a common type of object, the type is appended to the file name. For example, the `Dictionary` interface is defined in the `dictionary.interface.ts` file, and the `HelloController` class is defined in the `hello.controller.ts`.
 

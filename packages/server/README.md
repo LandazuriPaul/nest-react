@@ -1,8 +1,8 @@
-# Nest React API
+# Nest React Server
 
 ## Running the app
 
-By default, the API is listening to the [http://localhost:4000](http://localhost:4000) port. This behaviour can be configured via the [local.env](./env/local.env) file which is a basic `dotenv` configuration file, following the [NestJS recommendation](https://docs.nestjs.com/techniques/configuration) for the API configuration.
+By default, the server is listening to the [http://localhost:4000](http://localhost:4000) port. This behaviour can be configured via the [local.env](./env/local.env) file which is a basic `dotenv` configuration file, following the [NestJS recommendation](https://docs.nestjs.com/techniques/configuration) for the server configuration.
 
 ### In development
 
@@ -65,6 +65,6 @@ yarn test:cov
 
 ## Docker image
 
-The API package has a [Dockerfile](./Dockerfile) which builds a lightweight (based on the [alpine](https://alpinelinux.org/) project) production ready Docker image.
+The server package has a [Dockerfile](./Dockerfile) which builds a lightweight (based on the [alpine](https://alpinelinux.org/) project) production ready Docker image.
 
 For more information about the Docker images, see the [main README.md](../../README.md#docker-images).

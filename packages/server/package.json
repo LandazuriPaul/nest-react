@@ -1,5 +1,5 @@
 {
-  "name": "@nest-react/api",
+  "name": "@nest-react/server",
   "version": "0.1.0",
   "description": "Backend of the Nest + React boilerplate",
   "author": "Paul Landázuri",

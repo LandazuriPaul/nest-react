@@ -46,7 +46,7 @@ export class ConfigService {
 
 /!\\ No environment definition found! Please choose one of the following options (in preference order):
   1. Set both the CONFIG_PATH and the SECRETS_PATH environment variables and fill their respective folders with corresponding environment values.
-  2. Set the NODE_ENV environment variable and attach the corresponding "dotenv" file to the API.
+  2. Set the NODE_ENV environment variable and attach the corresponding "dotenv" file to the server.
 
 `;
       this.logger.error(msg);
@@ -109,7 +109,7 @@ export class ConfigService {
   }
 
   /**
-   * Safely prints the API configuration. All secret values will be hidden.
+   * Safely prints the server configuration. All secret values will be hidden.
    * @param envConfig
    */
   private printConfig(envConfig: DotenvParseOutput): void {
@@ -122,8 +122,10 @@ export class ConfigService {
     const secrets = Object.keys(envConfig).filter(key =>
       key.includes('SECRET')
     );
-    this.logger.log(`API configuration:\n${JSON.stringify(config, null, 2)}`);
-    this.logger.log(`API secrets:\n${JSON.stringify(secrets, null, 2)}`);
+    this.logger.log(
+      `Server configuration:\n${JSON.stringify(config, null, 2)}`
+    );
+    this.logger.log(`Server secrets:\n${JSON.stringify(secrets, null, 2)}`);
   }
 
   /**

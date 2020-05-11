@@ -5,7 +5,7 @@ set -e
 trap "exit" INT
 
 if [[ -z "${PACKAGE}" ]]; then
-  printf "You must specify a PACKAGE name (api or frontend) as an environment, e.g.: PACKAGE=api"
+  printf "You must specify a PACKAGE name (server or client) as an environment, e.g.: PACKAGE=server"
   exit 1
 fi
 
