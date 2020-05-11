@@ -74,6 +74,7 @@ module.exports = async () => {
       }),
       new HtmlWebpackPlugin({
         template: join(__dirname, 'public', 'index.html'),
+        minify: !developmentBuild,
       }),
     ],
     module: {
