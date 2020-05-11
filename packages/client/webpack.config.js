@@ -36,6 +36,7 @@ module.exports = async () => {
     }
   }
 
+  // common configuration (dev + prod)
   const config = {
     context: __dirname,
     devServer: {
@@ -70,9 +71,6 @@ module.exports = async () => {
       ],
     },
     plugins: [
-      new ExtraWatchWebpackPlugin({
-        dirs: [join('..', 'domain', 'dist'), join('..', 'lib', 'dist')],
-      }),
       new HtmlWebpackPlugin({
         template: join(__dirname, 'public', 'index.html'),
         minify: !developmentBuild,
@@ -120,10 +118,16 @@ module.exports = async () => {
     },
   };
 
-  if (!developmentBuild) {
-    config.plugins.splice(
-      0,
-      1,
+  if (developmentBuild) {
+    // development specific config
+    config.plugins.push(
+      new ExtraWatchWebpackPlugin({
+        dirs: [join('..', 'domain', 'dist'), join('..', 'lib', 'dist')],
+      })
+    );
+  } else {
+    // production specific config
+    config.plugins.push(
       new CopyWebpackPlugin([{ from: 'public', ignore: ['index.html'] }])
     );
     config.plugins.push(new CleanWebpackPlugin());
