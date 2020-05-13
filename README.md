@@ -22,9 +22,9 @@ While being minimalistic, this boilerplate offers a number of features which can
 
 - TypeScript 3.7 which comes with, for example, **optional chaining** and customised [import paths](#typescript-import-paths) already defined for each package.
 
-- EditorConfig + Prettier for [code formatting](#code-formatting)
+- EditorConfig + Prettier for [code formatting](#code-formatting).
 
-- Full ESLint configurations for [linting](#linting)
+- Full ESLint configurations for [linting](#linting).
 
 - Consistent coding style following the standards. See [CONTRIBUTING](./CONTRIBUTING.md#coding-styles).
 
@@ -34,11 +34,11 @@ While being minimalistic, this boilerplate offers a number of features which can
 
 - The Webpack's [Hot Module Replacement](https://webpack.js.org/concepts/hot-module-replacement/) combined with the React [Fast Refresh](https://github.com/facebook/react/tree/master/packages/react-refresh) feature thanks to the [React Refresh Webpack Plugin](https://github.com/pmmmwh/react-refresh-webpack-plugin) offers an incredibly fast development process. When you edit and save a source file, it will only reload the corresponding module in the development server AND only **re-render the depending components without losing their state**!
 
-- Debugger tool so you can avoid using the native but synchronous and greed `console`'s methods. For more information, see the client README section about the [Debug library](./packages/client#debug-library)
+- Debugger tool so you can avoid using the native but synchronous and greed `console`'s methods. For more information, see the client README section about the [Debug library](./packages/client#debug-library).
 
-- Production ready [NGINX](https://nginx.org/) configuration example to optimise your frontend file delivery
+- Production ready [NGINX](https://nginx.org/) configuration example to optimise your frontend file delivery.
 
-- Production ready [Dockerfile](#docker-images)
+- Production ready [Dockerfile](#docker-images).
 
 ### Server
 
@@ -46,7 +46,7 @@ While being minimalistic, this boilerplate offers a number of features which can
 
 - A predefined **global config module** to handle all the configuration you would like to pass to your server at runtime. You can lean more in the server's README [Configuration module](./packages/server/README.md#configuration-module) section.
 
-- Production ready [Dockerfile](#docker-images)
+- Production ready [Dockerfile](#docker-images).
 
 ---
 
@@ -54,11 +54,13 @@ While being minimalistic, this boilerplate offers a number of features which can
 
 First, you'll need to download and adapt it to your project:
 
-1. Clone this repository to a brand new folder after your `<new-project>`:
+1. Clone this repository to a brand new folder named after your `new-project`:
 
    ```sh
-   git clone git@github.com:LandazuriPaul/nest-react.git <new-project>
+   git clone git@github.com:LandazuriPaul/nest-react.git new-project
    ```
+
+> For steps 2 to 5, a global `search in all files` command from any decent editor should help. You can simply search for `nest-react` and replace it by your `new-project`.
 
 2. Change the main project's name, set in the root [`package.json`](./package.json)'s `name` field and in its `scripts` commands.
 
@@ -75,7 +77,7 @@ First, you'll need to download and adapt it to your project:
 
 ### Project installation
 
-Once you're done with the previous steps, you can properly install the project dependencies:
+Once you're done with the previous steps, you can properly install the project dependencies and link the packages together:
 
 1. Basic requirements to run the repository:
 
@@ -119,7 +121,7 @@ When you want to add new dependencies to any of the packages, you can either:
 
 ### Development & Builds
 
-See each package's README to learn more about their development and build scripts:
+See each package's README to learn more about its development and build scripts:
 
 - [Client](./packages/client/README.md)
 
