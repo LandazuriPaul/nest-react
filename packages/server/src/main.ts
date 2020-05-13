@@ -10,4 +10,5 @@ async function bootstrap(): Promise<void> {
   const config = app.get('ConfigService').envConfig;
   await app.listen(config.PORT);
 }
+
 bootstrap();

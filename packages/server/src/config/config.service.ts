@@ -12,6 +12,7 @@ export class ConfigService {
   private readonly configSchema = object({
     HOST: string().required(),
     PORT: number().default(4000),
+    SECRET_JWT_KEY: string().default('AVeryPrivateJWTKey'),
   });
   private envConfig: DotenvParseOutput;
   private logger: Logger;
@@ -25,7 +26,7 @@ export class ConfigService {
     let config: DotenvParseOutput;
     const { CONFIG_PATH: configPath, SECRETS_PATH: secretsPath } = process.env;
     if (configPath && secretsPath) {
-      config = this.getConfigFromVolume(configPath, secretsPath);
+      config = this.getConfigFromVolumes(configPath, secretsPath);
     } else {
       config = this.getConfigFromEnvFile(process.env.NODE_ENV);
     }
@@ -59,7 +60,7 @@ export class ConfigService {
    * @param configPath Path to the open `configurations` directory
    * @param secretsPath Path to the `secrets` directory
    */
-  private getConfigFromVolume(
+  private getConfigFromVolumes(
     configPath: string,
     secretsPath: string
   ): DotenvParseOutput {
@@ -104,7 +105,7 @@ export class ConfigService {
     if (error) {
       throw new Error(`Config validation error: ${error.message}`);
     }
-    this.printConfig(envConfig);
+    this.printConfig(validatedEnvConfig);
     return validatedEnvConfig;
   }
 
