@@ -6,7 +6,7 @@ Following the [NestJS recommendation](https://docs.nestjs.com/techniques/configu
 
 ### Initialisation
 
-This module adapts to both local `dotenv` files and container orchestration config volumes — e.g. [Kubernetes `config-volume`](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/). It follows the below logic to define the configuration variable, in order of priority:
+This module adapts to both local `dotenv` files and container orchestration config volumes — e.g. [Kubernetes `config-volume`](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/). It follows the below logic to define the configuration variables, in order of priority:
 
 1. If both `CONFIG_PATH` and `SECRETS_PATH` environment variables are defined, it will look for their corresponding values as folders and hydrate the configuration with their file content.
 

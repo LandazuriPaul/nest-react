@@ -14,11 +14,11 @@ This is a basic boilerplate to quickly set up a web application **fully written 
 
 ## Features
 
-While being minimalistic, this boilerplate offers a number of features which can be very valuable for your Development Experience (DX):
+While being minimalistic, this boilerplate offers a number of features which can be very valuable for the Development Experience (DX):
 
 ### Global
 
-- Makes use of the [yarn workspaces](https://classic.yarnpkg.com/en/docs/workspaces/) to centralise the package management system for all your internal packages.
+- Makes use of the [yarn workspaces](https://classic.yarnpkg.com/en/docs/workspaces/) to centralise the package management system for all the internal packages.
 
 - TypeScript 3.7 which comes with, for example, **optional chaining** and customised [import paths](#typescript-import-paths) already defined for each package.
 
@@ -32,7 +32,9 @@ While being minimalistic, this boilerplate offers a number of features which can
 
 ### Client
 
-- The Webpack's [Hot Module Replacement](https://webpack.js.org/concepts/hot-module-replacement/) combined with the React [Fast Refresh](https://github.com/facebook/react/tree/master/packages/react-refresh) feature thanks to the [React Refresh Webpack Plugin](https://github.com/pmmmwh/react-refresh-webpack-plugin) offers an incredibly fast development process. When you edit and update a source file, it will only reload the corresponding module in the development server AND only **re-render the depending components without losing their state**!
+- The Webpack's [Hot Module Replacement](https://webpack.js.org/concepts/hot-module-replacement/) combined with the React [Fast Refresh](https://github.com/facebook/react/tree/master/packages/react-refresh) feature thanks to the [React Refresh Webpack Plugin](https://github.com/pmmmwh/react-refresh-webpack-plugin) offers an incredibly fast development process. When you edit and save a source file, it will only reload the corresponding module in the development server AND only **re-render the depending components without losing their state**!
+
+- Debugger tool so you can avoid using the native but synchronous and greed `console`'s methods. For more information, see the client README section about the [Debug library](./packages/client#debug-library)
 
 - Production ready [NGINX](https://nginx.org/) configuration example to optimise your frontend file delivery
 
