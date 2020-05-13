@@ -9,7 +9,6 @@ if [[ -z "${PACKAGE}" ]]; then
   exit 1
 fi
 
-# TODO: read the version from the corresponding package.json
 LOCAL_VERSION="${VERSION:-latest}"
 
 DOCKER_IMAGE="docker.pkg.github.com/landazuripaul/nest-react/nest-react-$PACKAGE:$LOCAL_VERSION"
