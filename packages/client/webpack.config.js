@@ -1,65 +1,51 @@
 /* eslint-env node */
 /* eslint-disable no-console, @typescript-eslint/camelcase */
 const { join } = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const ExtraWatchWebpackPlugin = require('extra-watch-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const { TsconfigPathsPlugin } = require('tsconfig-paths-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const ExtraWatchWebpackPlugin = require('extra-watch-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const { getLastCommit } = require('@nest-react/lib');
-const babelConfig = require('./.babelrc.js');
 
-// CONSTANT definitions
-const WEBPACK_DEV_SERVER_PORT = 8000;
+// Constants definitions
 const ASSETS_MAX_INLINE_SIZE = 5000;
+const WEBPACK_DEV_SERVER_PORT = 8000;
 
-// Define the environment
-const developmentBuild = process.env.NODE_ENV === 'development';
+// Environment definition
+const isDev = process.env.NODE_ENV !== 'production';
+
+// Commit information to identify the build
+async function getBuildId() {
+  try {
+    const lastCommit = await getLastCommit();
+    if (lastCommit.branch !== 'master') {
+      return `${lastCommit.shortHash}@${lastCommit.branch}`;
+    }
+    return lastCommit.shortHash;
+  } catch (err) {
+    console.log(err);
+    return 'no-git';
+  }
+}
 
 module.exports = async () => {
-  let buildId;
-
-  if (!developmentBuild) {
-    // get commit information to identify the build
-    let lastCommit;
-    try {
-      lastCommit = await getLastCommit();
-      buildId = lastCommit.shortHash;
-      if (lastCommit.branch !== 'master') {
-        buildId += `@${lastCommit.branch}`;
-      }
-    } catch (err) {
-      console.log(err);
-      buildId = 'no-git';
-    }
-  }
-
-  // common configuration (dev + prod)
+  /**
+   *  Common configuration (dev + prod)
+   */
   const config = {
     context: __dirname,
-    devServer: {
-      contentBase: join(__dirname, 'public'),
-      staticOptions: {
-        redirect: true,
-      },
-      historyApiFallback: true,
-      compress: true,
-      port: WEBPACK_DEV_SERVER_PORT,
-      overlay: {
-        errors: true,
-      },
-      watchContentBase: true,
-    },
-    mode: developmentBuild ? 'development' : 'production',
-    devtool: developmentBuild ? 'cheap-module-eval-source-map' : false,
+    mode: isDev ? 'development' : 'production',
+    devtool: isDev ? 'cheap-module-eval-source-map' : false,
     entry: join(__dirname, 'src', 'index.tsx'),
     output: {
       path: join(__dirname, 'dist'),
-      filename: developmentBuild
+      filename: isDev
         ? 'dist.js'
-        : `dist.${buildId}.[contenthash:8].js`,
+        : `dist.${await getBuildId()}.[contenthash:8].js`,
       publicPath: '/',
     },
     resolve: {
@@ -73,35 +59,25 @@ module.exports = async () => {
     plugins: [
       new HtmlWebpackPlugin({
         template: join(__dirname, 'public', 'index.html'),
-        minify: !developmentBuild,
+        minify: !isDev,
       }),
     ],
     module: {
       rules: [
         {
           enforce: 'pre',
-          test: /\.(js|ts)x?$/,
+          test: /\.tsx?$/,
           exclude: /node_modules/,
           loader: 'eslint-loader',
           options: {
             configFile: join(__dirname, '.eslintrc'),
-            failOnError: !developmentBuild,
-          },
-        },
-        {
-          test: /\.js$/,
-          exclude: /node_modules/,
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env'],
-            plugins: ['@babel/proposal-object-rest-spread'],
+            failOnError: !isDev,
           },
         },
         {
           test: /\.tsx?$/,
           exclude: /node_modules/,
           loader: 'babel-loader',
-          options: babelConfig,
         },
         {
           test: /\.(svg|png|jpg|jpeg)$/,
@@ -118,19 +94,34 @@ module.exports = async () => {
     },
   };
 
-  if (developmentBuild) {
+  if (isDev) {
     // development specific config
+    config.devServer = {
+      compress: true,
+      contentBase: join(__dirname, 'public'),
+      historyApiFallback: true,
+      hot: true,
+      overlay: {
+        errors: true,
+      },
+      port: WEBPACK_DEV_SERVER_PORT,
+      staticOptions: {
+        redirect: true,
+      },
+      watchContentBase: true,
+    };
     config.plugins.push(
       new ExtraWatchWebpackPlugin({
         dirs: [join('..', 'domain', 'dist'), join('..', 'lib', 'dist')],
-      })
+      }),
+      new ReactRefreshWebpackPlugin()
     );
   } else {
     // production specific config
     config.plugins.push(
-      new CopyWebpackPlugin([{ from: 'public', ignore: ['index.html'] }])
+      new CopyWebpackPlugin([{ from: 'public', ignore: ['index.html'] }]),
+      new CleanWebpackPlugin()
     );
-    config.plugins.push(new CleanWebpackPlugin());
     config.optimization = {
       minimize: true,
       minimizer: [
