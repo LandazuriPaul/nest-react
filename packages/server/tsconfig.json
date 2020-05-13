@@ -7,7 +7,6 @@
     "paths": {
       "~/*": ["src/*"]
     },
-    "removeComments": true,
     "strictPropertyInitialization": false
   }
 }
