@@ -15,6 +15,8 @@ COPY packages/lib packages/lib
 
 # Install domain + lib + server dependencies
 RUN yarn install --pure-lockfile --non-interactive
+
+# Build common packages
 RUN yarn build:common
 
 # Build server then
