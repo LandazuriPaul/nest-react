@@ -46,6 +46,7 @@
     "eslint-plugin-react-hooks": "^2.3.0",
     "extra-watch-webpack-plugin": "^1.0.3",
     "file-loader": "^6.0.0",
+    "git-last-commit": "^1.0.0",
     "html-webpack-plugin": "^4.0.4",
     "prettier": "^1.19.1",
     "react-refresh": "^0.8.2",

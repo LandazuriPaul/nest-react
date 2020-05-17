@@ -1,1 +1,1 @@
-export * from './getLastCommit';
+console.log('empty');

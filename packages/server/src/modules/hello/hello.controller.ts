@@ -1,6 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
 
-import { getLastCommit } from '@nest-react/lib';
+import { getLastCommit } from '~/utils';
 
 import { HelloService } from './hello.service';
 

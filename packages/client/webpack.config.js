@@ -1,15 +1,21 @@
 /* eslint-env node */
 /* eslint-disable no-console, @typescript-eslint/camelcase */
 const { join } = require('path');
+const { promisify } = require('util');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ExtraWatchWebpackPlugin = require('extra-watch-webpack-plugin');
+const { getLastCommit: gitLastCommit } = require('git-last-commit');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const { TsconfigPathsPlugin } = require('tsconfig-paths-webpack-plugin');
 
-const { getLastCommit } = require('@nest-react/lib');
+const getLastCommitPromise = promisify(gitLastCommit);
+
+async function getLastCommit() {
+  return getLastCommitPromise();
+}
 
 // Constants definitions
 const ASSETS_MAX_INLINE_SIZE = 5000;
