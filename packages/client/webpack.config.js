@@ -125,8 +125,8 @@ module.exports = async () => {
   } else {
     // production specific config
     config.plugins.push(
-      new CopyWebpackPlugin([{ from: 'public', ignore: ['index.html'] }]),
-      new CleanWebpackPlugin()
+      new CleanWebpackPlugin(),
+      new CopyWebpackPlugin([{ from: 'public', ignore: ['index.html'] }])
     );
     config.optimization = {
       minimize: true,
