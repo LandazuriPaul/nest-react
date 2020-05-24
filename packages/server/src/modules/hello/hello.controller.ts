@@ -13,7 +13,7 @@ export class HelloController {
     return this.helloService.getHello();
   }
 
-  @Get('/version')
+  @Get('version')
   async getVersion(): Promise<{ commit: string }> {
     const lastCommit = await getLastCommit();
     return {

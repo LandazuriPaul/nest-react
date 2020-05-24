@@ -15,10 +15,9 @@ export class ConfigService {
     SECRET_JWT_KEY: string().default('AVeryPrivateJWTKey'),
   });
   private envConfig: DotenvParseOutput;
-  private logger: Logger;
+  private logger = new Logger(ConfigService.name);
 
   constructor() {
-    this.logger = new Logger(ConfigService.name);
     this.rootDir = `${join(process.cwd())}`;
     this.runningDir = `${join(this.rootDir, process.env.baseUrl || '')}`;
 

@@ -4,11 +4,9 @@ import { ConfigService } from '~/modules/config/config.service';
 
 @Injectable()
 export class HelloService {
-  private logger: Logger;
+  private logger = new Logger(HelloService.name);
 
-  constructor(private readonly configService: ConfigService) {
-    this.logger = new Logger(HelloService.name);
-  }
+  constructor(private readonly configService: ConfigService) {}
 
   getHello(): string {
     this.logger.log('log from helloService.getHello()');
