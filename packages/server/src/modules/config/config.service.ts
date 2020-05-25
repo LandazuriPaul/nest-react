@@ -10,6 +10,7 @@ export class ConfigService {
   public runningDir: string;
 
   private readonly configSchema = object({
+    CORS_WHITELIST: string().required(),
     HOST: string().required(),
     PORT: number().default(4000),
     SECRET_JWT_KEY: string().default('AVeryPrivateJWTKey'),
@@ -131,6 +132,10 @@ export class ConfigService {
   /**
    * Config getters
    */
+
+  get corsWhiteList(): string[] {
+    return this.envConfig.CORS_WHITELIST.split(',');
+  }
 
   get host(): string {
     return String(this.envConfig.HOST);
