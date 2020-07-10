@@ -14,8 +14,8 @@
   "author": "Paul Landázuri",
   "license": "LGPL-3.0-or-later",
   "dependencies": {
-    "@nest-react/domain": "0.1.0",
-    "@nest-react/lib": "0.1.0",
+    "@nest-react/domain": "^0.1.0",
+    "@nest-react/lib": "^0.1.0",
     "debug": "^4.1.1",
     "react": "^16.8.0",
     "react-dom": "^16.12.0"

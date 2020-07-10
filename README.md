@@ -54,7 +54,7 @@ While being minimalistic, this boilerplate offers a number of features which can
 
 First, you'll need to download and adapt it to your project:
 
-1. Clone this repository to a brand new folder named after your `new-project`:
+1. You can use the [Use this template](https://github.com/LandazuriPaul/nest-react/generate) feature from GitHub to generate a new project based on this boilerplate. Alternatively, you can clone this repository to a brand new folder named after your `new-project`:
 
    ```sh
    git clone git@github.com:LandazuriPaul/nest-react.git new-project
