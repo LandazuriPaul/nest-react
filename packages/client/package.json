@@ -48,7 +48,7 @@
     "file-loader": "^6.0.0",
     "git-last-commit": "^1.0.0",
     "html-webpack-plugin": "^4.0.4",
-    "prettier": "^1.19.1",
+    "prettier": "^2.0.5",
     "react-refresh": "^0.8.2",
     "rimraf": "^3.0.2",
     "terser-webpack-plugin": "^2.3.5",

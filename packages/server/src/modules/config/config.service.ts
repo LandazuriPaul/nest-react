@@ -87,9 +87,7 @@ export class ConfigService {
    * @param filePath File path to read the config from
    */
   private extractConfigFromFile(filePath: string): string {
-    const fileContent = readFileSync(filePath)
-      .toString()
-      .trim();
+    const fileContent = readFileSync(filePath).toString().trim();
     return fileContent;
   }
 
