@@ -142,4 +142,12 @@ export class ConfigService {
   get port(): number {
     return parseInt(this.envConfig.PORT, 10);
   }
+
+  /**
+   * Secret getters
+   */
+
+  get secretJwtKey(): string {
+    return String(this.envConfig.SECRET_JWT_KEY);
+  }
 }
