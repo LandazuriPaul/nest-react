@@ -13,7 +13,7 @@ export class ConfigService {
     CORS_WHITELIST: string().required(),
     HOST: string().required(),
     PORT: number().default(4000),
-    SECRET_JWT_KEY: string().default('AVeryPrivateJWTKey'),
+    SECRET_JWT_KEY: string().required(),
   });
   private envConfig: DotenvParseOutput;
   private logger = new Logger(ConfigService.name);
