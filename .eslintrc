@@ -30,7 +30,7 @@
     "dot-notation": "error",
     "eqeqeq": ["error", "smart"],
     "guard-for-in": "error",
-    "max-len": [1, { "code": 150, "ignoreUrls": true }],
+    "max-len": [1, { "code": 180, "ignoreUrls": true }],
     "no-bitwise": "error",
     "no-cond-assign": "error",
     "no-console": [
@@ -116,7 +116,7 @@
         }
       }
     ],
-    "@typescript-eslint/no-empty-function": "error",
+    "@typescript-eslint/no-empty-function": "warn",
     "@typescript-eslint/no-empty-interface": "error",
     "@typescript-eslint/no-explicit-any": "warn",
     "@typescript-eslint/no-namespace": "error",
