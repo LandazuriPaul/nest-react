@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import { join } from 'path';
 import { readFileSync, readdirSync } from 'fs';
 

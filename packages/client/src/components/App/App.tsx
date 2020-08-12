@@ -5,7 +5,7 @@ import { Dictionary } from '@nest-react/domain';
 import { API_URL } from '~/config';
 import { Logger } from '~/utils';
 
-export const App: FC<{}> = () => {
+export const App: FC<unknown> = () => {
   const [response, setResponse] = useState<string>('');
 
   useEffect(() => {
