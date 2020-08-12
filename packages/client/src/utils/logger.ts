@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-ignore */
 import debug from 'debug';
 
 import { LOGGER_PREFIX } from '~/config';
@@ -16,23 +15,19 @@ debugError.enabled = true;
 debugError.color = '#b01405';
 
 export class Logger {
-  // @ts-ignore:Rest parameter 'args' implicitly has an 'any[]' type
-  static info(...args): void {
+  static info(...args: unknown[]): void {
     return debugInfo(args);
   }
 
-  // @ts-ignore:Rest parameter 'args' implicitly has an 'any[]' type
-  static log(...args): void {
+  static log(...args: unknown[]): void {
     return debugInfo(args);
   }
 
-  // @ts-ignore:Rest parameter 'args' implicitly has an 'any[]' type
-  static warn(...args): void {
+  static warn(...args: unknown[]): void {
     return debugWarn(args);
   }
 
-  // @ts-ignore:Rest parameter 'args' implicitly has an 'any[]' type
-  static error(...args): void {
+  static error(...args: unknown[]): void {
     if (args && args.length > 0 && args[0] instanceof Error) {
       const [e, ...rest] = args;
       let message = e.toString();

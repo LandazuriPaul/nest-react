@@ -2,7 +2,7 @@ import { join } from 'path';
 import { readFileSync, readdirSync } from 'fs';
 
 import { DotenvParseOutput, parse } from 'dotenv';
-import { number, object, string } from '@hapi/joi';
+import { number, object, string } from 'joi';
 import { InternalServerErrorException, Logger } from '@nestjs/common';
 
 export class ConfigService {
