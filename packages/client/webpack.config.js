@@ -1,7 +1,8 @@
 /* eslint-env node */
-/* eslint-disable no-console, @typescript-eslint/camelcase */
+/* eslint-disable no-console, @typescript-eslint/naming-convention */
 const { join } = require('path');
 const { promisify } = require('util');
+const { DefinePlugin } = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ExtraWatchWebpackPlugin = require('extra-watch-webpack-plugin');
@@ -10,6 +11,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const { TsconfigPathsPlugin } = require('tsconfig-paths-webpack-plugin');
+
+const { peerDependencies } = require('./package.json');
 
 const getLastCommitPromise = promisify(gitLastCommit);
 
@@ -36,6 +39,11 @@ async function getBuildId() {
     console.log(err);
     return 'no-git';
   }
+}
+
+function getRequiredServerVersion() {
+  const serverPackage = `${process.env.npm_package_name.split('/')[0]}/server`;
+  return peerDependencies[serverPackage];
 }
 
 module.exports = async () => {
@@ -66,6 +74,9 @@ module.exports = async () => {
       new HtmlWebpackPlugin({
         template: join(__dirname, 'public', 'index.html'),
         minify: !isDev,
+      }),
+      new DefinePlugin({
+        __REQUIRED_SERVER_VERSION__: `'${getRequiredServerVersion()}'`,
       }),
     ],
     module: {
