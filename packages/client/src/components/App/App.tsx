@@ -3,10 +3,10 @@ import React, { FC, useEffect, useState } from 'react';
 import { Dictionary } from '@nest-react/domain';
 
 import { API_URL } from '~/config';
-import { Logger } from '~/utils';
+import { Logger, checkServerVersion } from '~/utils';
 
 export const App: FC<unknown> = () => {
-  const [response, setResponse] = useState<string>('');
+  const [response, setResponse] = useState<string>('NO SERVER RESPONSE');
 
   useEffect(() => {
     async function fetchResponse(): Promise<void> {
@@ -20,6 +20,10 @@ export const App: FC<unknown> = () => {
     }
 
     fetchResponse();
+  }, []);
+
+  useEffect(() => {
+    checkServerVersion();
   }, []);
 
   const dictExample: Dictionary<number> = {

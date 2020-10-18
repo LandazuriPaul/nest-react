@@ -1,4 +1,5 @@
 import { Controller, Get } from '@nestjs/common';
+import { Commit } from 'git-last-commit';
 
 import { getLastCommit } from '~/utils';
 
@@ -14,10 +15,18 @@ export class HelloController {
   }
 
   @Get('version')
-  async getVersion(): Promise<{ commit: string }> {
+  async getVersion(): Promise<{ version: string }> {
+    return {
+      version: process.env.npm_package_version!,
+    };
+  }
+
+  @Get('last-commit')
+  async getLastCommit(): Promise<Pick<Commit, 'hash' | 'shortHash'>> {
     const lastCommit = await getLastCommit();
     return {
-      commit: lastCommit.shortHash,
+      hash: lastCommit.hash,
+      shortHash: lastCommit.shortHash,
     };
   }
 }
