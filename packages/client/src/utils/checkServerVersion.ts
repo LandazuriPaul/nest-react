@@ -1,4 +1,4 @@
-import { satisfies } from 'semver';
+import satisfies from 'semver/functions/satisfies';
 
 import { API_URL } from '~/config';
 
