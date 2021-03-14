@@ -22,8 +22,8 @@ coverage
 .nyc_output
 
 # Environment files
-*.env
-!local.env
+*.local
+!example.env
 docker-compose.*.yml
 
 # build

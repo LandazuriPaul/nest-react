@@ -39,7 +39,7 @@ export class ConfigService {
    * @param env The environment name. Corresponding `name.env` file will be used. Default to `local`
    */
   private getConfigFromEnvFile(env = 'local'): DotenvParseOutput {
-    const envFilePath = join('env', `${env}.env`);
+    const envFilePath = join('env', `.env.${env}`);
     try {
       const config = parse(readFileSync(envFilePath));
       return config;
