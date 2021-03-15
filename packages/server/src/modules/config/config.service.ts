@@ -46,7 +46,7 @@ export class ConfigService {
     } catch (err) {
       const msg = `Configuration error, see below:
 
-/!\\ No environment definition found! Please choose one of the following options (in preference order):
+/!\\ No environment definition found at ${envFilePath}. Please choose one of the following options (in preference order):
   1. Set both the CONFIG_PATH and the SECRETS_PATH environment variables and fill their respective folders with corresponding environment values.
   2. Set the NODE_ENV environment variable and attach the corresponding "dotenv" file to the server.
 
