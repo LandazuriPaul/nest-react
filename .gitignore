@@ -30,6 +30,7 @@ docker-compose.*.yml
 build/
 dist/
 dist-ssr/
+VERSION
 
 # misc
 .DS_Store

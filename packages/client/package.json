@@ -7,6 +7,7 @@
   "license": "LGPL-3.0-or-later",
   "scripts": {
     "start:dev": "vite",
+    "prebuild": "cd ../.. && yarn generate:version",
     "build": "vite build",
     "serve": "vite preview",
     "lint": "eslint --fix --ext .ts,.tsx,.js,.jsx src",

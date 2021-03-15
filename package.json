@@ -27,6 +27,7 @@
     }
   ],
   "scripts": {
+    "generate:version": "./scripts/generate_version.sh",
     "start:domain": "yarn workspace @nest-react/domain start:dev",
     "start:lib": "yarn workspace @nest-react/lib start:dev",
     "start:common": "(yarn start:domain & yarn start:lib)",

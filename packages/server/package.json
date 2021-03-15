@@ -6,7 +6,7 @@
   "license": "LGPL-3.0-or-later",
   "main": "src/main.ts",
   "scripts": {
-    "prebuild": "rimraf dist",
+    "prebuild": "rimraf dist && cd ../.. && yarn generate:version",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",

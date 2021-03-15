@@ -1,35 +1,31 @@
-import { resolve } from 'path';
-import { promisify } from 'util';
+import { join } from 'path';
+import { readFileSync } from 'fs';
 import { ResolvedConfig, UserConfigExport, defineConfig } from 'vite';
 import reactRefresh from '@vitejs/plugin-react-refresh';
-import { Commit, getLastCommit as gitLastCommit } from 'git-last-commit';
 
 import { peerDependencies } from './package.json';
-
-const getLastCommitPromise = promisify(gitLastCommit);
-
-async function getLastCommit(): Promise<Commit> {
-  return getLastCommitPromise();
-}
 
 const DEV_SERVER_PORT = 8000;
 
 // Commit information to identify the build
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-async function getBuildId(): Promise<any> {
+function getBuildId(): string {
   try {
-    const lastCommit = await getLastCommit();
-    if (lastCommit.branch !== 'master') {
-      return `${lastCommit.shortHash}@${lastCommit.branch}`;
-    }
-    return lastCommit.shortHash;
+    const versionPath = join(__dirname, '..', '..', 'VERSION');
+    const versionData = readFileSync(versionPath)
+      .toString()
+      .split(/[\r\n]+/);
+    const [, branch] = versionData
+      .find(line => line.includes('GIT_BRANCH'))!
+      .split('=');
+    const [, shortHash] = versionData
+      .find(line => line.includes('GIT_SHORT_HASH'))!
+      .split('=');
+    return `${shortHash}@${branch}`;
   } catch (err) {
     console.log(err);
     return 'no-git';
   }
 }
-
-const BUILD_ID = await getBuildId();
 
 // https://vitejs.dev/config/
 export default ({
@@ -42,7 +38,7 @@ export default ({
     },
     resolve: {
       alias: {
-        '~': resolve(__dirname, 'src'),
+        '~': join(__dirname, 'src'),
       },
     },
     plugins: [reactRefresh()],
@@ -63,8 +59,7 @@ export default ({
       sourcemap: true,
       rollupOptions: {
         output: {
-          // file: `dist.js`,
-          file: `dist.${BUILD_ID}.[hash].js`,
+          file: `dist.${getBuildId()}.[hash].js`,
         },
       },
     },
