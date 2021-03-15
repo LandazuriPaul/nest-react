@@ -58,6 +58,16 @@
         ],
         "react/prop-types": "off"
       }
+    },
+    {
+      "files": ["vite.config.ts"],
+      "env": {
+        "browser": false,
+        "node": true
+      },
+      "rules": {
+        "no-console": "off"
+      }
     }
   ]
 }

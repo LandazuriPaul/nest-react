@@ -1,6 +1,6 @@
 import debug from 'debug';
 
-import { LOGGER_PREFIX } from '~/config';
+const LOGGER_PREFIX = 'nest-react';
 
 const debugInfo = debug(`${LOGGER_PREFIX}:info`);
 debugInfo.enabled = true;

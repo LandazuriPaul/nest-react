@@ -1,6 +1,6 @@
 {
   "name": "@nest-react/lib",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Library of the nest-react boilerplate",
   "author": "Paul Landázuri",
   "license": "LGPL-3.0-or-later",
@@ -12,13 +12,13 @@
     "lint": "eslint \"{src,test}/**/*.ts\" --fix"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^3.6.1",
-    "@typescript-eslint/parser": "^3.6.1",
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.10.0",
-    "eslint-plugin-import": "^2.20.1",
-    "eslint-plugin-prettier": "^3.1.3",
-    "prettier": "^2.0.5",
-    "typescript": "^3.7.4"
+    "@typescript-eslint/eslint-plugin": "^4.17.0",
+    "@typescript-eslint/parser": "^4.17.0",
+    "eslint": "^7.22.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "prettier": "^2.2.1",
+    "typescript": "^4.1.2"
   }
 }

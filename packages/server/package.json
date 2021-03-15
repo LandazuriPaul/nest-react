@@ -1,6 +1,6 @@
 {
   "name": "@nest-react/server",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Backend of the Nest + React boilerplate",
   "author": "Paul Landázuri",
   "license": "LGPL-3.0-or-later",
@@ -21,8 +21,8 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
-    "@nest-react/domain": "^0.1.0",
-    "@nest-react/lib": "^0.1.0",
+    "@nest-react/domain": "^1.0.0",
+    "@nest-react/lib": "^1.0.0",
     "@nestjs/common": "^7.0.0",
     "@nestjs/core": "^7.0.0",
     "@nestjs/platform-express": "^7.0.0",
@@ -41,20 +41,20 @@
     "@types/jest": "25.1.4",
     "@types/node": "^13.9.1",
     "@types/supertest": "^2.0.8",
-    "@typescript-eslint/eslint-plugin": "^3.6.1",
-    "@typescript-eslint/parser": "^3.6.1",
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.10.0",
-    "eslint-plugin-import": "^2.20.1",
-    "eslint-plugin-prettier": "^3.1.3",
+    "@typescript-eslint/eslint-plugin": "^4.17.0",
+    "@typescript-eslint/parser": "^4.17.0",
+    "eslint": "^7.22.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.3.1",
     "jest": "^25.1.0",
-    "prettier": "^2.0.5",
+    "prettier": "^2.2.1",
     "supertest": "^4.0.2",
     "ts-jest": "25.2.1",
     "ts-loader": "^6.2.1",
     "ts-node": "^8.6.2",
     "tsconfig-paths": "^3.9.0",
-    "typescript": "^3.7.4"
+    "typescript": "^4.1.2"
   },
   "jest": {
     "moduleFileExtensions": [

@@ -1,8 +1,10 @@
 import React, { Suspense } from 'react';
 import { render } from 'react-dom';
 
-import { App } from '~/components/App';
 import { APP_ROOT } from '~/config';
+import { App } from '~/components/App';
+
+import './index.css';
 
 const rootElement = document.getElementById(APP_ROOT);
 

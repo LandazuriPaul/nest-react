@@ -1,5 +1,5 @@
 # Builder
-FROM node:12-alpine as builder
+FROM node:14-alpine as builder
 
 # Copy client and domain + lib packages
 WORKDIR /usr/src/nest-react/

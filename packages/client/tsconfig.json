@@ -1,18 +1,21 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "baseUrl": ".",
+    "allowJs": false,
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "incremental": false,
+    "baseUrl": ".",
+    "esModuleInterop": false,
     "isolatedModules": true,
     "jsx": "react",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "module": "esnext",
-    "outDir": "dist",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "module": "ESNext",
+    "noEmit": true,
     "paths": {
       "~/*": ["src/*"]
     },
-    "target": "es5"
+    "resolveJsonModule": true,
+    "skipLibCheck": false,
+    "target": "ESNext",
+    "types": ["vite/client"]
   }
 }

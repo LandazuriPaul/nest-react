@@ -7,7 +7,7 @@ services:
   server:
     image: docker.pkg.github.com/landazuripaul/nest-react/nest-react-server:latest
     volumes:
-      - ./packages/server/env/local.env:/usr/src/nest-react/packages/server/env/local.env
+      - ./packages/server/env/.env.local:/usr/src/nest-react/packages/server/env/.env.local
     ports:
       - '4000:4000'
     environment:
