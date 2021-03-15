@@ -7,7 +7,7 @@
   "main": "src/main.ts",
   "scripts": {
     "generate:version": "cd ../.. && yarn generate:version",
-    "prebuild": "rimraf dist && yarn generate:version",
+    "prebuild": "rimraf dist",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "prestart": "yarn generate:version",

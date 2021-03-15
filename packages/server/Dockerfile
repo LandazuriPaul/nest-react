@@ -26,8 +26,10 @@ RUN yarn build
 # Runner
 FROM node:14-alpine AS runner
 
-# Copy the dist builds from builder
 WORKDIR /usr/src/nest-react
+COPY VERSION .
+
+# Copy the dist builds from builder
 COPY --from=builder /usr/src/nest-react/package.json .
 COPY --from=builder /usr/src/nest-react/yarn.lock .
 COPY --from=builder /usr/src/nest-react/tsconfig.json .

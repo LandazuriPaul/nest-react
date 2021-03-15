@@ -8,6 +8,7 @@ COPY .eslintignore .
 COPY package.json .
 COPY tsconfig.json .
 COPY yarn.lock .
+COPY VERSION .
 
 COPY packages/client packages/client
 COPY packages/domain packages/domain
