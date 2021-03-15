@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
 
 import { ConfigModule } from './config/config.module';
-import { HelloModule } from './hello/hello.module';
+import { StatusModule } from './status/status.module';
 
 @Module({
-  imports: [ConfigModule, HelloModule],
+  imports: [ConfigModule, StatusModule],
 })
 export class APIModule {}

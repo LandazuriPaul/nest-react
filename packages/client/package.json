@@ -7,7 +7,8 @@
   "license": "LGPL-3.0-or-later",
   "scripts": {
     "start:dev": "vite",
-    "prebuild": "cd ../.. && yarn generate:version",
+    "generate:version": "cd ../.. && yarn generate:version",
+    "prebuild": "yarn generate:version",
     "build": "vite build",
     "serve": "vite preview",
     "lint": "eslint --fix --ext .ts,.tsx,.js,.jsx src",
@@ -38,7 +39,6 @@
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "git-last-commit": "^1.0.0",
     "prettier": "^2.2.1",
     "typescript": "^4.1.2",
     "vite": "^2.0.5"
