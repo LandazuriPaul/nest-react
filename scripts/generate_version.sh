@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Constants
-VERSION_FILENAME="VERSION"
+VERSION_FILENAME="$(pwd)/VERSION"
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
 # Git info
@@ -24,3 +24,5 @@ DOMAIN_VERSION=$DOMAIN_VERSION
 LIB_VERSION=$LIB_VERSION
 SERVER_VERSION=$SERVER_VERSION
 EOF
+
+echo "> $VERSION_FILENAME file generated"
