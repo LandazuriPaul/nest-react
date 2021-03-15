@@ -11,7 +11,7 @@ function isServerVersionSatisfying(serverVersion: string): boolean {
 export async function checkServerVersion(): Promise<void> {
   try {
     const res = await fetch(`${API_URL}/version`);
-    const { version: serverVersion } = await res.json();
+    const { SERVER_VERSION: serverVersion } = await res.json();
     if (!isServerVersionSatisfying(serverVersion)) {
       Logger.error(
         `Server version ${serverVersion} does NOT satisfy client's peer dependency: ${__REQUIRED_SERVER_VERSION__}`
