@@ -21,30 +21,11 @@ To learn more about the debug library usage in the browser, you can check out [i
 
 ### Styling options
 
-The boilerplate doesn't include any styling solution. Nevertheless, if you opt for a solution requiring CSS files, you could easily adapt the webpack configuration to include them:
-
-```js
-// close to the end of in the config.module.rules array
-{
-  test: /\.css$/,
-  use: ["style-loader", "css-loader"],
-},
-```
-
-You would then need to add these two loaders to your client `devDependencies`:
-
-```sh
-# from the packages/client directory
-yarn add -D style-loader css-loader
-```
-
-For more information about these loaders, please refer to their [respective documentation](https://webpack.js.org/loaders/#styling).
+Vite already comes with a complete set of [CSS support](https://vitejs.dev/guide/features.html#css).
 
 ## Running the app
 
-By default, the webpack dev server is listening to the [http://localhost:8000](http://localhost:8000) port. This can be configured in the [webpack.config.js](./webpack.config.js) file, changing the `WEBPACK_DEV_SERVER_PORT` constant.
-
-If your client imports assets (e.g. images), they will be passed as base64 inline HTML element if they are under `5000` bytes. Otherwise they will be passed as separated files in the final bundle. To change this limit, you can change the `ASSETS_MAX_INLINE_SIZE` constant. For more information about this, see the [`url-loader` documentation](https://webpack.js.org/loaders/url-loader).
+By default, the webpack dev server is listening to the [http://localhost:8000](http://localhost:8000) port. This can be configured in the [vite.config.js](./vite.config.js) file, changing the `DEV_SERVER_PORT` constant.
 
 ### In development
 
@@ -53,7 +34,7 @@ If your client imports assets (e.g. images), they will be passed as base64 inlin
 yarn start:dev
 ```
 
-As the `webpack` loader used for both JavaScript and TypeScript files is the `babel-loader`, it simply strips away all TypeScript-specific features in the source code when building both the development server and the final production build. This dramatically speeds up the hot replacement process when locally developing and offers a number of improvements with libraries which don't support tree-shaking natively. It also avoids many useless disrupting errors occurring during prototyping while the types aren't completely respected yet.
+As Vite is based on ESBuild for both JavaScript and TypeScript files, it simply strips away all TypeScript-specific features in the source code when building both the development server and the final production build. This dramatically speeds up the hot replacement process when locally developing and offers a number of improvements with libraries which don't support tree-shaking natively. It also avoids many useless disrupting errors occurring during prototyping while the types aren't completely respected yet.
 
 But the disadvantage is that the bundler won't detect any TypeScript error unless it is a JavaScript error.
 
@@ -80,6 +61,8 @@ Once you are happy with your code, you can run a production version following th
    ```
 
 2. Then you can serve the `dist` folder from any webserver application like [NGINX](https://nginx.org/) for example. The [nginx.conf](./nginx.conf) can be used as an example of a working NGINX configuration.
+
+In order to further customise the production bundling, you can check [Vite's documentation](https://vitejs.dev/config/#build-options). Since it uses [Rollup](https://rollupjs.org/guide/en/) under the hood, you are free to adapt every single part of the bundling process and use external Rollup plugins.
 
 ### Docker image
 

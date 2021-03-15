@@ -6,11 +6,13 @@ This is a basic boilerplate to quickly set up a web application **fully written 
 
   > _« A progressive Node.js framework for building efficient, reliable and scalable server-side applications. »_
 
-- [React + ReactDOM](https://reactjs.org/) (^16.8.0 / ^16.12.0) for the **client**: [> Go to the client package](./packages/client)
+- [React + ReactDOM](https://reactjs.org/) (^17.0.0) for the **client**: [> Go to the client package](./packages/client)
 
   > _« A JavaScript library for building user interfaces »_
 
-- [Webpack](https://webpack.js.org/) (^4.42.0): A versatile bundler for both the client and the server.
+- [Vite](https://vitejs.dev/) (^2.0.5): Based on ESBuild and Rollup, this tool combines speed, performance and configurability to offer the best frontend DX possible
+
+  > _« Next Generation Frontend Tooling »_
 
 ## Features
 
@@ -20,7 +22,7 @@ While being minimalistic, this boilerplate offers a number of features which can
 
 - Makes use of the [yarn workspaces](https://classic.yarnpkg.com/en/docs/workspaces/) to centralise the package management system for all the internal packages.
 
-- TypeScript 3.7 which comes with, for example, **optional chaining** and customised [import paths](#typescript-import-paths) already defined for each package.
+- TypeScript ^4.2.3 which comes with, for example, **optional chaining** and customised [import paths](#typescript-import-paths) already defined for each package.
 
 - EditorConfig + Prettier for [code formatting](#code-formatting).
 
@@ -32,7 +34,7 @@ While being minimalistic, this boilerplate offers a number of features which can
 
 ### Client
 
-- The Webpack's [Hot Module Replacement](https://webpack.js.org/concepts/hot-module-replacement/) combined with the React [Fast Refresh](https://github.com/facebook/react/tree/master/packages/react-refresh) feature thanks to the [React Refresh Webpack Plugin](https://github.com/pmmmwh/react-refresh-webpack-plugin) offers an incredibly fast development process. When you edit and save a source file, it will only reload the corresponding module in the development server AND only **re-render the depending components without losing their state**!
+- [Vite's Hot Module Replacement](https://vitejs.dev/guide/features.html#hot-module-replacement) combined with the [React Fast Refresh](https://github.com/facebook/react/tree/master/packages/react-refresh) offers an incredibly fast development process. When you edit and save a source file, it will only reload the corresponding module in the development server AND only **re-render the depending components without losing their state**!
 
 - Debugger tool so you can avoid using the native but synchronous and greed `console`'s methods. For more information, see the client README section about the [Debug library](./packages/client#debug-library).
 
@@ -47,6 +49,29 @@ While being minimalistic, this boilerplate offers a number of features which can
 - A predefined **global config module** to handle all the configuration you would like to pass to your server at runtime. You can lean more in the server's README [Configuration module](./packages/server/README.md#configuration-module) section.
 
 - Production ready [Dockerfile](#docker-images).
+
+
+### Client/Server versions
+
+
+While being minimalistic, this boilerplate provides straight-forward access to the client's or version's deployed version:
+
+1. To check the server's version, simply call the [`/version`](http://localhost:4000/version) endpoint which returns a JSON looking like this:
+
+    ```json
+    {
+      "GIT_SHORT_HASH": "568cfad",
+      "GIT_BRANCH": "master",
+      "REPO_VERSION": "1.0.0",
+      "DOMAIN_VERSION": "1.0.0",
+      "LIB_VERSION": "1.0.0",
+      "SERVER_VERSION": "1.0.0"
+    }
+    ```
+
+2. To identify the client's deployed version, you can see the page's source code and look for the JS bundle name, which should look like: `index.39a2462@master.c177f4e7.js`. This corresponds to the pattern passed in the [`vite.config.ts`](./packages/client/vite.config.ts) file: `[name].${getBuildId()}.[hash].js`. Currently, the `buildId` is defined as `shortHash@branch` but you can adapt the `getBuildId` function to your needs.
+
+3. Since the two applications are supposed to be deployed as separate Docker images, this boilerplate comes with a simple function embedded in the frontend: [`checkServerVersion`](./packages/client/src/utils/checkServerVersion.ts). If the server version doesn't satisfy the frontend **peer dependency**, an error message will be printed in the frontend console (using the debug library).
 
 ---
 
@@ -83,7 +108,7 @@ Once you're done with the previous steps, you can properly install the project d
 
    - [Node.js](https://nodejs.org/en/): The recommended way is via [`nvm`](https://github.com/nvm-sh/nvm). You can then install the version used for this project:
      ```sh
-     nvm install lts/erbium
+     nvm install 14.16.0
      ```
    - [Yarn](https://classic.yarnpkg.com/): If you have `nvm` installed, you'd prefer to install `yarn` without the node dependency. To do so, the `bash` install is the easiest:
      ```sh
@@ -199,11 +224,7 @@ In order to run the applications in a completely containerised environment, plea
 
 ## Improvements
 
--- TODO: Add an automated script to run installation steps 2 to 5.
-
--- TODO: In `build_and_push.sh`, read the version from the corresponding package.json
-
--- TODO: Upgrade to TypeScript v3.9
+- #TODO: Add an automated script to run installation steps 2 to 5.
 
 ## License
 
