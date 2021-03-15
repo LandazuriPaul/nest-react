@@ -53,13 +53,15 @@ export default ({
     };
   }
 
+  const assetsDir = 'assets';
+
   return {
     ...baseConfig,
     build: {
       sourcemap: true,
       rollupOptions: {
         output: {
-          file: `dist.${getBuildId()}.[hash].js`,
+          entryFileNames: join(assetsDir, `[name].${getBuildId()}.[hash].js`),
         },
       },
     },
