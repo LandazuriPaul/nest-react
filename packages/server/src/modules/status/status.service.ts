@@ -9,12 +9,24 @@ import { ConfigService } from '~/modules/config/config.service';
 @Injectable()
 export class StatusService {
   private logger = new Logger(StatusService.name);
-  private version: string;
+  private version: Dictionary<string>;
 
   constructor(private readonly configService: ConfigService) {
     this.version = readFileSync(
       join(configService.rootDir, '..', '..', 'VERSION')
-    ).toString();
+    )
+      .toString()
+      .split(/[\r\n]+/)
+      .reduce((agg, line) => {
+        const [key, value] = line.split('=');
+
+        // The client is served from another Docker image
+        // thus, this one isn't necessarily correct
+        if (key !== 'CLIENT_VERSION') {
+          agg[key] = value;
+        }
+        return agg;
+      }, {} as Dictionary<string>);
   }
 
   getStatus(): string {
@@ -23,10 +35,6 @@ export class StatusService {
   }
 
   getVersion(): Dictionary<string> {
-    return this.version.split(/[\r\n]+/).reduce((agg, line) => {
-      const [key, value] = line.split('=');
-      agg[key] = value;
-      return agg;
-    }, {} as Dictionary<string>);
+    return this.version;
   }
 }
