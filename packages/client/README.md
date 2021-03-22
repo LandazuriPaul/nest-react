@@ -34,14 +34,24 @@ By default, the webpack dev server is listening to the [http://localhost:8000](h
 yarn start:dev
 ```
 
-As Vite is based on ESBuild for both JavaScript and TypeScript files, it simply strips away all TypeScript-specific features in the source code when building both the development server and the final production build. This dramatically speeds up the hot replacement process when locally developing and offers a number of improvements with libraries which don't support tree-shaking natively. It also avoids many useless disrupting errors occurring during prototyping while the types aren't completely respected yet.
-
-But the disadvantage is that the bundler won't detect any TypeScript error unless it is a JavaScript error.
+As Vite is based on ESBuild for both JavaScript and TypeScript files, it doesn't do any type check. This has a number of advantages like a much faster response hot update and avoiding many useless disrupting errors occurring during prototyping while the types aren't completely respected yet. But the disadvantage is that the bundler won't detect any TypeScript error unless it is a JavaScript error.
 
 To work around this limitation, the repository exposes a command to check your code is TypeScript compliant:
 
 ```sh
 yarn check-types
+```
+
+#### Pre-bundling on macOS
+
+When running for the first time in development mode, [Vite pre-bundles your dependencies](https://vitejs.dev/guide/dep-pre-bundling.html#dependency-pre-bundling). If you are running on macOS, you might see an error starting like this: `Error: ENFILE: file table overflow, scandir`. This is due to a limitation of concurrently opened files in recent macOS versions. Following [Dan MacTough's advice](http://blog.mact.me/2014/10/22/yosemite-upgrade-changes-open-file-limit), you can run the following to have this limit increased:
+
+```sh
+echo kern.maxfiles=65536 | sudo tee -a /etc/sysctl.conf
+echo kern.maxfilesperproc=65536 | sudo tee -a /etc/sysctl.conf
+sudo sysctl -w kern.maxfiles=65536
+sudo sysctl -w kern.maxfilesperproc=65536
+ulimit -n 65536 65536
 ```
 
 #### Debug
