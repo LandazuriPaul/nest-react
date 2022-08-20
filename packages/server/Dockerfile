@@ -8,6 +8,7 @@ COPY .eslintignore .
 COPY package.json .
 COPY tsconfig.json .
 COPY yarn.lock .
+COPY scripts/fix-common-package-exports.sh scripts/fix-common-package-exports.sh
 
 COPY packages/server packages/server
 COPY packages/domain packages/domain
