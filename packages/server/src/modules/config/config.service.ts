@@ -98,9 +98,8 @@ export class ConfigService {
    * @param envConfig The config object
    */
   private validateInput(envConfig: DotenvParseOutput): DotenvParseOutput {
-    const { error, value: validatedEnvConfig } = this.configSchema.validate(
-      envConfig
-    );
+    const { error, value: validatedEnvConfig } =
+      this.configSchema.validate(envConfig);
     if (error) {
       throw new Error(`Config validation error: ${error.message}`);
     }

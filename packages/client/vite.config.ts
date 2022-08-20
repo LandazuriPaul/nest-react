@@ -1,7 +1,11 @@
 import { join } from 'path';
 import { readFileSync } from 'fs';
-import { ResolvedConfig, UserConfigExport, defineConfig } from 'vite';
-import reactRefresh from '@vitejs/plugin-react-refresh';
+import {
+  ResolvedConfig,
+  UserConfigExport,
+  defineConfig,
+} from 'vite';
+import react from '@vitejs/plugin-react';
 
 import { peerDependencies } from './package.json';
 
@@ -41,7 +45,7 @@ export default ({
         '~': join(__dirname, 'src'),
       },
     },
-    plugins: [reactRefresh()],
+    plugins: [react()],
   });
 
   if (command === 'serve') {
