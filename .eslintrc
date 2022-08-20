@@ -93,7 +93,6 @@
     ],
     "@typescript-eslint/indent": "off",
     "@typescript-eslint/interface-name-prefix": "off",
-    "@typescript-eslint/member-ordering": 1,
     "@typescript-eslint/member-delimiter-style": [
       "off",
       {
