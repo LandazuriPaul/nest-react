@@ -6,9 +6,9 @@
   "configurations": [
     {
       "type": "chrome",
-      "request": "attach",
-      "name": "Attach to Chrome",
-      "port": 9222,
+      "request": "launch",
+      "name": "Launch Chrome against localhost",
+      "url": "http://localhost:8000",
       "webRoot": "${workspaceFolder}",
       "sourceMapPathOverrides": {
         "../*": "${webRoot}/*"
@@ -16,9 +16,9 @@
     },
     {
       "type": "chrome",
-      "request": "launch",
-      "name": "Launch Chrome against localhost",
-      "url": "http://localhost:1234",
+      "request": "attach",
+      "name": "Attach to Chrome",
+      "port": 9222,
       "webRoot": "${workspaceFolder}",
       "sourceMapPathOverrides": {
         "../*": "${webRoot}/*"
@@ -29,8 +29,7 @@
       "request": "attach",
       "name": "Server debug",
       "port": 9229,
-      "restart": true,
-      "protocol": "inspector"
+      "restart": true
     }
   ]
 }
