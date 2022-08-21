@@ -3,18 +3,19 @@
     "allowJs": true,
     "declaration": true,
     "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
     "incremental": true,
     "keyofStringsOnly": true,
-    "module": "commonjs",
+    "module": "ES2020",
     "moduleResolution": "node",
     "removeComments": true,
     "resolveJsonModule": true,
     "sourceMap": true,
     "skipLibCheck": true,
     "strict": true,
-    "target": "es2017"
+    "target": "ES2019"
   },
   "exclude": ["**/node_modules/*", "**/dist/*", "scripts/*"]
 }

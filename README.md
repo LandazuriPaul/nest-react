@@ -1,16 +1,16 @@
 # Nest - React boilerplate
 
-This is a basic boilerplate to quickly set up a web application **fully written in [TypeScript](https://www.typescriptlang.org/)** (^3.7.4) based on:
+This is a basic boilerplate to quickly set up a web application **fully written in [TypeScript](https://www.typescriptlang.org/)** (^4.7.4) based on:
 
-- [NestJS](https://nestjs.com/) (^7.0.0) for the **server**: [> Go to the server package](./packages/server)
+- [NestJS](https://nestjs.com/) (^9.0.11) for the **server**: [> Go to the server package](./packages/server)
 
   > _« A progressive Node.js framework for building efficient, reliable and scalable server-side applications. »_
 
-- [React + ReactDOM](https://reactjs.org/) (^17.0.0) for the **client**: [> Go to the client package](./packages/client)
+- [React + ReactDOM](https://reactjs.org/) (^18.2.0) for the **client**: [> Go to the client package](./packages/client)
 
   > _« A JavaScript library for building user interfaces »_
 
-- [Vite](https://vitejs.dev/) (^2.0.5): Based on ESBuild and Rollup, this tool combines speed, performance and configurability to offer the best frontend DX possible
+- [Vite](https://vitejs.dev/) (^3.0.9): Based on ESBuild and Rollup, this tool combines speed, performance and configurability to offer the best frontend DX possible
 
   > _« Next Generation Frontend Tooling »_
 
@@ -22,7 +22,7 @@ While being minimalistic, this boilerplate offers a number of features which can
 
 - Makes use of the [yarn workspaces](https://classic.yarnpkg.com/en/docs/workspaces/) to centralise the package management system for all the internal packages.
 
-- TypeScript ^4.2.3 which comes with, for example, **optional chaining** and customised [import paths](#typescript-import-paths) already defined for each package.
+- TypeScript ^4.7.4 which comes with, for example, **optional chaining** and customised [import paths](#typescript-import-paths) already defined for each package.
 
 - EditorConfig + Prettier for [code formatting](#code-formatting).
 
@@ -32,9 +32,11 @@ While being minimalistic, this boilerplate offers a number of features which can
 
 - Development scripts: `yarn start:dev` can be run in any package. See [Development & builds](#development--builds) for more information.
 
+- Visual Studio Code [debug settings](.vscode/launch.json).
+
 ### Client
 
-- [Vite's Hot Module Replacement](https://vitejs.dev/guide/features.html#hot-module-replacement) combined with the [React Fast Refresh](https://github.com/facebook/react/tree/master/packages/react-refresh) offers an incredibly fast development process. When you edit and save a source file, it will only reload the corresponding module in the development server AND only **re-render the depending components without losing their state**!
+- [Vite's Hot Module Replacement](https://vitejs.dev/guide/features.html#hot-module-replacement) combined with the [React Fast Refresh](https://github.com/facebook/react/tree/main/packages/react-refresh) offers an incredibly fast development process. When you edit and save a source file, it will only reload the corresponding module in the development server AND only **re-render the depending components without losing their state**!
 
 - Debugger tool so you can avoid using the native but synchronous and greed `console`'s methods. For more information, see the client README section about the [Debug library](./packages/client#debug-library).
 
@@ -108,7 +110,7 @@ Once you're done with the previous steps, you can properly install the project d
 
    - [Node.js](https://nodejs.org/en/): The recommended way is via [`nvm`](https://github.com/nvm-sh/nvm). You can then install the version used for this project:
      ```sh
-     nvm install 14.16.0
+     nvm install 16.16.0
      ```
    - [Yarn](https://classic.yarnpkg.com/): If you have `nvm` installed, you'd prefer to install `yarn` without the node dependency. To do so, the `bash` install is the easiest:
      ```sh

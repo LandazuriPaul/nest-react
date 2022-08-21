@@ -31,7 +31,7 @@ export class StatusService {
 
   getStatus(): string {
     this.logger.log('log from statusService.getStatus()');
-    return `Status world from Nest running on ${this.configService.host}:${this.configService.port}!`;
+    return `Hello world from Nest running on ${this.configService.host}:${this.configService.port}!`;
   }
 
   getVersion(): Dictionary<string> {

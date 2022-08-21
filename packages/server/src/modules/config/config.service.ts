@@ -3,18 +3,20 @@ import { join } from 'path';
 import { readFileSync, readdirSync } from 'fs';
 
 import { DotenvParseOutput, parse } from 'dotenv';
-import { number, object, string } from 'joi';
+import joi from 'joi';
 import { InternalServerErrorException, Logger } from '@nestjs/common';
+
+const { number, object, string } = joi.types();
 
 export class ConfigService {
   public rootDir: string;
   public runningDir: string;
 
-  private readonly configSchema = object({
-    CORS_WHITELIST: string().required(),
-    HOST: string().required(),
-    PORT: number().default(4000),
-    SECRET_JWT_KEY: string().required(),
+  private readonly configSchema = object.keys({
+    CORS_WHITELIST: string.required(),
+    HOST: string.required(),
+    PORT: number.default(4000),
+    SECRET_JWT_KEY: string.required(),
   });
   private envConfig: DotenvParseOutput;
   private logger = new Logger(ConfigService.name);
@@ -39,7 +41,7 @@ export class ConfigService {
    * @param env The environment name. Corresponding `name.env` file will be used. Default to `local`
    */
   private getConfigFromEnvFile(env = 'local'): DotenvParseOutput {
-    const envFilePath = join('env', `.env.${env}`);
+    const envFilePath = join('env', `${env}.env`);
     try {
       const config = parse(readFileSync(envFilePath));
       return config;
@@ -98,9 +100,8 @@ export class ConfigService {
    * @param envConfig The config object
    */
   private validateInput(envConfig: DotenvParseOutput): DotenvParseOutput {
-    const { error, value: validatedEnvConfig } = this.configSchema.validate(
-      envConfig
-    );
+    const { error, value: validatedEnvConfig } =
+      this.configSchema.validate(envConfig);
     if (error) {
       throw new Error(`Config validation error: ${error.message}`);
     }
