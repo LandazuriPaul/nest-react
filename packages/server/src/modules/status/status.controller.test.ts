@@ -19,7 +19,7 @@ describe('AppController', () => {
   describe('root', () => {
     it('should return a nice status world', () => {
       expect(statusController.getStatus()).toBe(
-        'Status world from Nest running on localhost:4000!'
+        'Hello world from Nest running on localhost:4000!'
       );
     });
   });
