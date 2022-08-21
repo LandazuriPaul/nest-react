@@ -22,7 +22,7 @@ While being minimalistic, this boilerplate offers a number of features which can
 
 - Makes use of the [yarn workspaces](https://classic.yarnpkg.com/en/docs/workspaces/) to centralise the package management system for all the internal packages.
 
-- TypeScript ^4.2.3 which comes with, for example, **optional chaining** and customised [import paths](#typescript-import-paths) already defined for each package.
+- TypeScript ^4.7.4 which comes with, for example, **optional chaining** and customised [import paths](#typescript-import-paths) already defined for each package.
 
 - EditorConfig + Prettier for [code formatting](#code-formatting).
 
@@ -31,6 +31,8 @@ While being minimalistic, this boilerplate offers a number of features which can
 - Consistent coding style following the standards. See [CONTRIBUTING](./CONTRIBUTING.md#coding-styles).
 
 - Development scripts: `yarn start:dev` can be run in any package. See [Development & builds](#development--builds) for more information.
+
+- Visual Studio Code [debug settings](.vscode/launch.json).
 
 ### Client
 
