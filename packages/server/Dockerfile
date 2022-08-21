@@ -1,5 +1,5 @@
 # Builder
-FROM node:14-alpine as builder
+FROM node:16-alpine as builder
 
 # Copy server and domain + lib packages
 WORKDIR /usr/src/nest-react/
@@ -25,7 +25,7 @@ WORKDIR /usr/src/nest-react/packages/server
 RUN yarn build
 
 # Runner
-FROM node:14-alpine AS runner
+FROM node:16-alpine AS runner
 
 WORKDIR /usr/src/nest-react
 COPY VERSION .
