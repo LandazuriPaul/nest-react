@@ -168,7 +168,7 @@ See each package's README to learn more about its development and build scripts:
 
 ## Linting
 
-[ESLint](https://eslint.org/) (^6.8.0) with [TypeScript parser](https://github.com/typescript-eslint/typescript-eslint) (^2.23.0): _« Find and fix problems in your JavaScript code »_
+[ESLint](https://eslint.org/) (^8.22.0) with [TypeScript parser](https://github.com/typescript-eslint/typescript-eslint) (^5.33.1): _« Find and fix problems in your JavaScript code »_
 
 - Project rules are set in the root [`.eslintrc`](./.eslintrc) file.
 
