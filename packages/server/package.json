@@ -31,7 +31,7 @@
     "@nestjs/core": "^11.1.18",
     "@nestjs/platform-express": "^9.0.11",
     "dotenv": "^16.0.1",
-    "joi": "^17.6.0",
+    "joi": "^18.2.1",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.5.6"
